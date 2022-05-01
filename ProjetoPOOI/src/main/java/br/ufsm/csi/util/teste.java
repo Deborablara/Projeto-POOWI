@@ -7,7 +7,7 @@ import br.ufsm.csi.model.Usuario;
 
 public class teste {
     public static void main(String args[]){
-        CadastrarUsuario();
+        deletar();
         TesteGetUser();
     }
 
@@ -25,4 +25,11 @@ public class teste {
         new UsuarioDAO().Cadastrar(u);
         System.out.println(p.getNomePermissao());
     }
+
+    public static void deletar(){
+        int id = 11;
+        new UsuarioDAO().Deletar(id);
+    }
+
+
 }
