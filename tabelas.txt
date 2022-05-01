@@ -1,0 +1,64 @@
+create table usuario(
+	id_usuario serial UNIQUE PRIMARY KEY,
+	nome varchar(50) NOT NULL,
+	password varchar(100) NOT NULL
+);
+
+create table status(
+	id_status serial UNIQUE PRIMARY KEY,
+	nome varchar(50) NOT NULL unique
+);
+
+create table produto(
+	id_produto serial UNIQUE PRIMARY KEY,
+	nome varchar(50) NOT NULL unique
+);
+
+create table cliente(
+	id_cliente serial UNIQUE PRIMARY KEY,
+	nome varchar(50) NOT NULL unique
+);
+
+create table veiculo(
+	placa varchar(20) PRIMARY KEY 
+);
+
+create table permissao(
+	id_permissao serial UNIQUE PRIMARY KEY,
+	nome varchar(50) NOT NULL unique
+);
+
+create table usuario_permissao(
+	id_us_perm serial UNIQUE PRIMARY KEY,
+	id_usuario int NOT NULL,
+	id_permissao int NOT NULL,
+	FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
+	FOREIGN KEY (id_permissao) REFERENCES permissao (id_permissao)
+);
+
+
+create table pedido (
+	id_pedido serial UNIQUE PRIMARY KEY,
+	quantidade float NOT NULL,
+	data_pedido date NOT NULL,
+	data_entrega date NOT NULL,
+	id_status int NOT NULL,
+	id_cliente int NOT NULL,
+	id_usuario int NOT NULL,
+	id_produto int NOT NULL,
+	placa varchar(20) NOT NULL,
+	FOREIGN KEY (id_status) REFERENCES status (id_status),
+	FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente),
+	FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
+	FOREIGN KEY (id_produto) REFERENCES produto (id_produto),
+	FOREIGN KEY (placa) REFERENCES veiculo (placa)
+	
+	
+	
+);
+
+
+
+
+
+
