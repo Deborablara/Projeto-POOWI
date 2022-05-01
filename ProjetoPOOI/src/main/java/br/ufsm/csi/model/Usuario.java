@@ -6,10 +6,10 @@ public class Usuario {
     private String password;
     private Permissao permissao;
 
-    public Usuario(int id, String nome, String password) {
-        this.id = id;
+    public Usuario(String nome, String password, Permissao permissao) {
         this.nome = nome;
         this.password = password;
+        this.permissao = permissao;
     }
 
     public Usuario() {

@@ -2,9 +2,15 @@ package br.ufsm.csi.model;
 
 public class Permissao {
     private int id;
-    private String nome;
+    private String nomePermissao;
 
     public Permissao() {
+    }
+
+    public Permissao( int id, String nomePermissao) {
+        this.nomePermissao = nomePermissao;
+        this.id = id;
+
     }
 
     public int getId() {
@@ -15,11 +21,11 @@ public class Permissao {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomePermissao() {
+        return nomePermissao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nomePermissao) {
+        this.nomePermissao = nomePermissao;
     }
 }
