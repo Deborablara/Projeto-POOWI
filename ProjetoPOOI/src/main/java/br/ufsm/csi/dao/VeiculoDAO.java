@@ -30,4 +30,21 @@ public class VeiculoDAO {
         }
         return veiculos;
     }
+
+    public String Cadastrar(Veiculo veiculo){
+        try(Connection connection = new ConectaDB().getConexao()){
+            this.sql = "INSERT INTO veiculo(placa) VALUES (?)";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setString(1, veiculo.getPlaca());
+
+            this.preparedStatement.execute();
+            this.status = "OK";
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return this.status;
+    }
+
+
 }
