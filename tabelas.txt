@@ -6,12 +6,12 @@ create table usuario(
 
 create table status(
 	id_status serial UNIQUE PRIMARY KEY,
-	nome varchar(50) NOT NULL unique
+	nome_status varchar(50) NOT NULL unique
 );
 
 create table produto(
 	id_produto serial UNIQUE PRIMARY KEY,
-	nome varchar(50) NOT NULL unique
+	nome_produto varchar(50) NOT NULL unique
 );
 
 create table cliente(

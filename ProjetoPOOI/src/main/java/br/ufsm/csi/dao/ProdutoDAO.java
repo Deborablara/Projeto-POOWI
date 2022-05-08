@@ -1,7 +1,6 @@
 package br.ufsm.csi.dao;
 
 import br.ufsm.csi.model.Produto;
-import jdk.vm.ci.meta.Constant;
 
 import java.sql.*;
 import java.util.ArrayList;
