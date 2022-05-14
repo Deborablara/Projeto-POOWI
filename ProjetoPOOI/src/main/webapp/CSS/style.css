@@ -1,9 +1,9 @@
-/******* RESET ******/
-
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color:#ffffff
 }
 
 a {
@@ -20,23 +20,74 @@ ul {
     list-style: none;
 }
 
-header{
-    width: 100%;
-    height: 100px;
-    background: #282828;
-    box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.29);
-
+body{
     display: flex;
-    justify-content: space-between;
 }
 
-h2{
+div#menu{
+    width: 18vw;
+    height: 100vh;
+    background: #1D2540;
+    padding-top: 2em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.395);
+}
+
+div#menu h1{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color:#ffffff;
+
+
+}
+
+div#menu h1 span{
+    color: #8DBF21;
+}
+
+div#menu #navbar{
+    width: 100%;
+    padding: 2em;
+}
+
+div#menu #navbar p{
+    font-weight: 300;
+    text-align:center;
+}
+
+#navbar ul li {
+    margin-top: 2em;
+    text-align: left;
+    width: 100%;
+    list-style-type: none;
+
+}
+
+
+#navbar ul li a{
     color: #ffffff;
+}
 
- }
+#navbar ul li a:hover{
+    color: #8DBF21;
+    border-bottom: 2px solid #8DBF21;
+}
 
+#footer{
+    padding: 2em;
+}
 
+#footer p{
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+}
 
+div#content{
+    width: 82vw;
+    height: 100vh;
 
-
-
+}
