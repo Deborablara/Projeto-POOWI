@@ -180,3 +180,68 @@ main section#content{
 .card img{
   width:18%;
 }
+
+.popup{
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.active{
+  display: flex;
+}
+
+.popup .conteudo{
+  width: 35vw;
+  height: 60vh;
+  padding:2rem;
+  background: var(--branco);
+  border-radius: 3px;
+  margin: 5rem auto;
+}
+
+.popup .conteudo img{
+  width:3%;
+  float: right;
+}
+
+.popup .conteudo h3{
+  margin-top:30px;
+  font-size: 1.5em;
+  text-align:center;
+}
+
+.popup .conteudo form{
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.popup .conteudo form input{
+  width: 100%;
+  background:#00000017;
+  padding: 5px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.button{
+  display: flex;
+  justify-content:flex-end;
+  margin-top: 10rem;
+}
+
+.popup .conteudo form button{
+  background: var(--azul);
+  color: var(--branco);
+  padding: 0.5rem;
+  width: 50%;
+  border: none;
+  border-radius: 3px;
+}
+

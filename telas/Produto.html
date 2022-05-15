@@ -38,9 +38,30 @@
       <h2>Produtos</h2>
       <section id="content">
         <div class="card">
-          <img src="./assets/plus.png" alt="simbolo de mais verde">
-          <a onclick="myFunction()" class="abrir">Cadastrar novo produto</a>
-
+          <img  src="./assets/plus.png" alt="simbolo de mais verde">
+          <a onclick="openPopup()" >Cadastrar novo produto</a>
+        </div>
+        <div class="popup">
+          <div class="conteudo">
+            <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
+            <h3>Novo produto</h3>
+            <form action="" method="post">
+              <div>
+                <label for="descricao">Descrição</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="descricao"
+                  id="descricao"
+                  placeholder="Nome do produto"
+                />
+              </div>
+              <div class="button">
+                <button type="submit">Cadastrar</button>
+              </div>
+            </form>
+          </div>
         </div>
         <div class="card">
           <img src="./assets/list.png" alt="simbolo de mais verde">
@@ -48,5 +69,6 @@
         </div>
       </section>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>
