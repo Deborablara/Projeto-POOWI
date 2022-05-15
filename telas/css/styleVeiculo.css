@@ -12,12 +12,17 @@
   padding: 0;
   box-sizing: border-box;
  font-family: 'Poppins', sans-serif;
- color: var(--branco);
+ color: #000000;
 }
 
 a {
   text-decoration: none;
 }
+
+h1{
+  color: var(--branco);
+}
+
 
 img {
   width: 100%;
@@ -66,6 +71,7 @@ section#navbar #menu{
 section#navbar #menu p{
   font-weight: 300;
   text-align:center;
+  color: var(--branco);
 }
 
 
@@ -109,10 +115,12 @@ section#navbar #menu p{
   font-weight: 500;
   font-size: 0.9em;
   text-align:center;
+  color: var(--branco);
 }
 
 #footer p:hover{
   color: var(--verde);
+
 }
 
 
