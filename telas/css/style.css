@@ -50,6 +50,7 @@ section#navbar{
   justify-content: space-between;
   flex-direction: column;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.395);
+  position: fixed;
 }
 
 section#navbar h1{
@@ -128,6 +129,7 @@ section#navbar #menu p{
 
 main{
   width: 82vw;
+  margin-left: 18vw;
   padding: 2em;
 }
 
@@ -245,3 +247,32 @@ main section#content{
   border-radius: 3px;
 }
 
+/*tabelas*/
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  margin:2rem auto;
+  font-size: 14px;
+}
+
+td, th {
+  border: 1px solid var(--branco);
+  text-align: left;
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #1d254017;
+}
+
+
+.icon-edit{
+  width: 16px;
+  margin: 0 auto;
+}
+
+
+
+/*Buscar*/

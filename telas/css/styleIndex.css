@@ -49,6 +49,7 @@ section#navbar{
   justify-content: space-between;
   flex-direction: column;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.395);
+  position: fixed;
 }
 
 section#navbar h1{
@@ -122,6 +123,7 @@ section#navbar #menu p{
 
 main{
   width: 82vw;
+  margin-left: 18vw;
   display: flex;
   justify-content: center;
 }
