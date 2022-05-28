@@ -17,6 +17,7 @@
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 h1{
@@ -270,7 +271,7 @@ tr:nth-child(even) {
 
 .icon-edit{
   width: 16px;
-  margin: 0 auto;
+  margin-right: 10px;
 }
 
 

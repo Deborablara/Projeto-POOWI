@@ -14,7 +14,36 @@ public class UsuarioDAO {
     private PreparedStatement preparedStatement;
     private String status;
 
-    public ArrayList<Usuario> getUsuario() {
+    public Usuario getUsuario(String usuario, String senha){
+        Usuario us = null;
+
+        try(Connection conn = new ConectaDB().getConexao()){
+            this.sql = "select id_usuario, nome, password from usuario where nome=? and password=?";
+
+            this.preparedStatement = conn.prepareStatement(this.sql);
+            this.preparedStatement.setString(1, usuario);
+            this.preparedStatement.setString(2, senha);
+            this.rs = preparedStatement.executeQuery();
+
+            System.out.println("GetUsuario" + this.preparedStatement);
+
+            while(this.rs.next()){
+                us = new Usuario();
+                us.setId(this.rs.getInt("id_usuario"));
+                us.setNome(this.rs.getString("nome"));
+                us.setPassword(this.rs.getString("password"));
+
+                return us;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+
+        }
+        return us;
+
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         try (Connection connection = new ConectaDB().getConexao()) {
             this.sql = "select * from usuario_permissao, usuario, permissao" +
