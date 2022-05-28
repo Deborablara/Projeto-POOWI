@@ -7,6 +7,9 @@ public class Produto {
     public Produto() {
 
     }
+    public Produto(String nome) {
+        this.nome = nome;
+    }
 
     public int getId() {
         return id;

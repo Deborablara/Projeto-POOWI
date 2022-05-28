@@ -5,7 +5,10 @@
   Time: 14:21
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -311,22 +314,30 @@
     </div >
     <div id="footer">
         <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href=""><p>Sair</p></a>
+        <a href="dashboard?opcao=logout"><p>Sair</p></a>
     </div>
     </div>
 </section>
 <main>
     <h2>Produtos</h2>
+    <c:if test="${retorno == 'OK'}">
+        <p style="color:green; text-align: right;">Produto Cadastrado com sucesso!</p>
+    </c:if>
+    <c:if test="${retorno == 'erro'}">
+        <p style="color:red; text-align: right;">Falha ao executar esta ação!</p>
+    </c:if>
+
     <section id="content">
         <div class="card">
             <img  src="./assets/plus.png" alt="simbolo de mais verde">
             <a onclick="openPopup()" >Cadastrar novo produto</a>
         </div>
+
         <div class="popup">
             <div class="conteudo">
                 <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
                 <h3>Novo produto</h3>
-                <form action="" method="post">
+                <form action="produto?opcao=cadastrar" method="post">
                     <div>
                         <label for="descricao">Descrição</label>
                     </div>
@@ -334,9 +345,9 @@
                         <input
                                 type="text"
                                 name="descricao"
-                                id="descricao"
                                 placeholder="Nome do produto"
                         />
+
                     </div>
                     <div class="button">
                         <button type="submit">Cadastrar</button>
@@ -352,4 +363,15 @@
 </main>
 <script src="./script.js"></script>
 </body>
+<script>
+    const popup = document.querySelector('.popup')
+
+    function openPopup() {
+        popup.classList.add('active')
+    }
+    function closePopup() {
+        popup.classList.remove('active')
+    }
+</script>
+</html>
 </html>

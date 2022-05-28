@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -186,7 +188,7 @@
     </div >
     <div id="footer">
         <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href=""><p>Sair</p></a>
+        <a href="dashboard?opcao=logout"><p>Sair</p></a>
     </div>
     </div>
 </section>
