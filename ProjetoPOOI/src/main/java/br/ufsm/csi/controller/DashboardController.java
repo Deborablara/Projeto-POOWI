@@ -34,7 +34,7 @@ public class DashboardController extends HttpServlet {
                 break;
 
             case "produtos":
-                uri = "produtos.jsp";
+                uri = "produto.jsp";
                 break;
 
             default:
