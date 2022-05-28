@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: debora
-  Date: 27/05/2022
-  Time: 20:45
+  Date: 28/05/2022
+  Time: 15:26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -37,12 +37,12 @@
 
         a {
             text-decoration: none;
+            cursor: pointer;
         }
 
         h1{
             color: var(--branco);
         }
-
 
         img {
             width: 100%;
@@ -59,6 +59,8 @@
         }
 
         /********************** NAVBAR ***********************/
+
+
 
         section#navbar{
             width: 18vw;
@@ -93,6 +95,7 @@
             color: var(--branco);
         }
 
+
         #menu ul li {
             margin-top: 2em;
             text-align: left;
@@ -103,13 +106,17 @@
 
 
         #menu ul li a{
+            width: 100%;
             color: #ffffff;
+            transition: color 0.3s;
+            transition: border 0.3s;
         }
 
-        #menu ul li a:hover{
+        #menu ul li a:hover, #menu ul li a.active{
             color: var(--verde);
             border-bottom: 2px solid var(--verde);
         }
+
 
         #footer{
             padding: 2em;
@@ -144,32 +151,150 @@
         main{
             width: 82vw;
             margin-left: 18vw;
-            display: flex;
-            justify-content: center;
+            padding: 2em;
+        }
+
+        main h2{
+            color: var(--azul);
+            font-size: 2em;
+            margin-left: 1.4em;
         }
 
         main section#content{
             width: 100%;
             margin: 0 auto;
             padding-top: 5rem;
+            display: flex;
+
         }
 
-        main section#content h2{
-            font-size: 2em;
+        .card {
+            width: 30%;
+            height: 35vh;
+            padding: 2rem 2rem;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+            border-bottom: 0.25rem solid var(--verde);
+            border-radius: 0.25rem 0.25rem 0 0;
+            text-align: center;
+            margin-left: 3em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .card a{
+            background: var(--verde);
             color: var(--azul);
+            width: 90%;
+            font-size: 1em;
+            padding: 0.8rem;
+            border-radius: 3px;
+            transition: background 0.3s;
+
+        }
+
+        .card a:hover{
+            background: var(--azul);
+            color: var(--verde);
+        }
+
+        .card img{
+            width:18%;
+        }
+
+        .popup{
+            background: rgba(0, 0, 0, 0.5);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .active{
+            display: flex;
+        }
+
+        .popup .conteudo{
+            width: 35vw;
+            height: 60vh;
+            padding:2rem;
+            background: var(--branco);
+            border-radius: 3px;
+            margin: 5rem auto;
+        }
+
+        .popup .conteudo img{
+            width:3%;
+            float: right;
+        }
+
+        .popup .conteudo h3{
+            margin-top:30px;
+            font-size: 1.5em;
             text-align:center;
         }
 
-        main section#content h2 span{
-            color: var(--verde);
+        .popup .conteudo form{
+            width: 100%;
+            margin-top: 2rem;
         }
-        main section#content h3{
-            color:var(--azul);
-            font-weight: 300;
-            text-align: center;
+
+        .popup .conteudo form input{
+            width: 100%;
+            background:#00000017;
+            padding: 5px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .button{
+            display: flex;
+            justify-content:flex-end;
+            margin-top: 10rem;
+        }
+
+        .popup .conteudo form button{
+            background: var(--azul);
+            color: var(--branco);
+            padding: 0.5rem;
+            width: 50%;
+            border: none;
+            border-radius: 3px;
+        }
+
+        /*tabelas*/
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin:2rem auto;
+            font-size: 14px;
+        }
+
+        td, th {
+            border: 1px solid var(--branco);
+            text-align: left;
+            padding: 8px;
+        }
+
+
+        tr:nth-child(even) {
+            background-color: #1d254017;
+        }
+
+
+        .icon-edit{
+            width: 16px;
+            margin-right: 10px;
         }
     </style>
-    <title>Página inicial</title>
+    <title>Produtos</title>
 </head>
 <body>
 <section id="navbar">
@@ -188,15 +313,28 @@
     </div >
     <div id="footer">
         <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href="dashboard?opcao=logout"><p>Sair</p></a>
+        <a href=""><p>Sair</p></a>
     </div>
     </div>
 </section>
 <main>
-    <section id="content">
-        <h2>Bem-vindo(a), <span>${usuario_logado.nome}</span></h2>
-        <h3>ACESSE O MENU LATERAL</h3>
-    </section>
+    <h2>Produtos</h2>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Opção</th>
+        </tr>
+        <c:forEach var="produtos" items="${produtos}">
+            <tr>
+                <td>${produtos.id}</td>
+                <td>${produtos.nome}</td>
+                <td><a href=""><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+            </tr>
+        </c:forEach>
+    </table>
+
 </main>
 </body>
 </html>

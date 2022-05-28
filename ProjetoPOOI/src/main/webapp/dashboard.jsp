@@ -194,7 +194,7 @@
 </section>
 <main>
     <section id="content">
-        <h2>Bem-vindo(a), <span>Usuário</span></h2>
+        <h2>Bem-vindo(a), <span>${usuario_logado.nome}</span></h2>
         <h3>ACESSE O MENU LATERAL</h3>
     </section>
 </main>

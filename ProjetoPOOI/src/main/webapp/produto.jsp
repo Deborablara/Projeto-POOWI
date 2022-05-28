@@ -357,7 +357,7 @@
         </div>
         <div class="card">
             <img src="./assets/list.png" alt="simbolo de mais verde">
-            <a>Listar Produtos</a>
+            <a href="produto?opcao=listar">Listar Produtos</a>
         </div>
     </section>
 </main>

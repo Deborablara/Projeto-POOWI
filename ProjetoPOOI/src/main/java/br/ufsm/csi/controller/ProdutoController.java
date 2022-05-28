@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("produto")
 public class ProdutoController extends HttpServlet {
@@ -29,6 +30,13 @@ public class ProdutoController extends HttpServlet {
                 req.setAttribute("retorno", retorno);
 
                 uri = "produto.jsp";
+
+                break;
+
+            case "listar":
+                ArrayList<Produto> produtos = dao.getProdutos();
+                req.setAttribute("produtos", produtos);
+                uri = ("listarProdutos.jsp");
 
                 break;
         }

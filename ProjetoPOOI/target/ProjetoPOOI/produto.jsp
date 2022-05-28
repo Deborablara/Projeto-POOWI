@@ -321,7 +321,7 @@
 <main>
     <h2>Produtos</h2>
     <c:if test="${retorno == 'OK'}">
-        <p style="color:green; text-align: right;">Paciente Cadastrado com sucesso!</p>
+        <p style="color:green; text-align: right;">Produto Cadastrado com sucesso!</p>
     </c:if>
     <c:if test="${retorno == 'erro'}">
         <p style="color:red; text-align: right;">Falha ao executar esta ação!</p>
@@ -357,7 +357,7 @@
         </div>
         <div class="card">
             <img src="./assets/list.png" alt="simbolo de mais verde">
-            <a>Listar Produtos</a>
+            <a href="produto?opcao=listar">Listar Produtos</a>
         </div>
     </section>
 </main>
