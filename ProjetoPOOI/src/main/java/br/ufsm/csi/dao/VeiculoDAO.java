@@ -42,6 +42,7 @@ public class VeiculoDAO {
             this.status = "OK";
         }catch(SQLException e){
             e.printStackTrace();
+            this.status = "erro";
         }
         return this.status;
     }

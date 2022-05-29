@@ -48,6 +48,7 @@
         img {
             width: 100%;
             height: auto;
+            cursor: pointer;
         }
 
         ul {
@@ -158,37 +159,28 @@
         main h2{
             color: var(--azul);
             font-size: 2em;
-            margin-left: 1.4em;
         }
 
         main section#content{
             width: 100%;
             margin: 0 auto;
-            padding-top: 5rem;
-            display: flex;
-
-        }
-
-        .card {
-            width: 30%;
-            height: 35vh;
-            padding: 2rem 2rem;
-            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
-            border-bottom: 0.25rem solid var(--verde);
-            border-radius: 0.25rem 0.25rem 0 0;
-            text-align: center;
-            margin-left: 3em;
+            padding-top: 1rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
 
         }
 
-        .card a{
+        main section#content .divbutton{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+
+        main section#content .divbutton a{
             background: var(--verde);
             color: var(--azul);
-            width: 90%;
+            width: 17%;
             font-size: 1em;
             padding: 0.8rem;
             border-radius: 3px;
@@ -196,13 +188,9 @@
 
         }
 
-        .card a:hover{
+        main section#content .divbutton a:hover{
             background: var(--azul);
             color: var(--verde);
-        }
-
-        .card img{
-            width:18%;
         }
 
         .popup{
@@ -273,9 +261,13 @@
 
         table {
             border-collapse: collapse;
-            width: 70%;
-            margin:2rem auto;
-            font-size: 14px;
+            width: 80%;
+            margin:5rem auto;
+            font-size: 16px;
+        }
+
+        th{
+            text-align: center;
         }
 
         td, th {
@@ -308,7 +300,7 @@
                 <li><a href="dashboard?opcao=clientes">Clientes</a></li>
                 <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
                 <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                <li><a href="dashboard?opcao=produtos">Produtos</a></li>
+                <li><a href="dashboard?opcao=produtos" class="active">Produtos</a></li>
             </ul>
         </div>
     </div >
@@ -319,19 +311,35 @@
     </div>
 </section>
 <main>
-    <h2>Produtos</h2>
-    <c:if test="${retorno == 'OK'}">
-        <p style="color:green; text-align: right;">Produto Cadastrado com sucesso!</p>
-    </c:if>
-    <c:if test="${retorno == 'erro'}">
-        <p style="color:red; text-align: right;">Falha ao executar esta ação!</p>
-    </c:if>
-
     <section id="content">
-        <div class="card">
-            <img  src="./assets/plus.png" alt="simbolo de mais verde">
+
+        <c:if test="${retorno == 'OK'}">
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Produto Cadastrado com sucesso!</p>
+        </c:if>
+        <c:if test="${retorno == 'erro'}">
+            <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
+        </c:if>
+
+        <div class="divbutton">
+            <h2>Produtos</h2>
             <a onclick="openPopup()" >Cadastrar novo produto</a>
         </div>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Opção</th>
+            </tr>
+            <c:forEach var="produtos" items="${produtos}">
+                <tr>
+                    <td>${produtos.id}</td>
+                    <td>${produtos.nome}</td>
+                    <td><a href="produto?opcao=excluir&&id=${p.id}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                </tr>
+            </c:forEach>
+        </table>
+
 
         <div class="popup">
             <div class="conteudo">
@@ -354,10 +362,6 @@
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="card">
-            <img src="./assets/list.png" alt="simbolo de mais verde">
-            <a href="produto?opcao=listar">Listar Produtos</a>
         </div>
     </section>
 </main>

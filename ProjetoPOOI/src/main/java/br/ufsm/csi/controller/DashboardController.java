@@ -1,5 +1,8 @@
 package br.ufsm.csi.controller;
 
+import br.ufsm.csi.dao.ProdutoDAO;
+import br.ufsm.csi.dao.VeiculoDAO;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +29,7 @@ public class DashboardController extends HttpServlet {
                 break;
 
             case "veiculos":
+                req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
                 uri = "veiculo.jsp";
                 break;
 
@@ -34,7 +38,13 @@ public class DashboardController extends HttpServlet {
                 break;
 
             case "produtos":
+                req.setAttribute("produtos", new ProdutoDAO().getProdutos());
                 uri = "produto.jsp";
+                break;
+
+            case "logout":
+                req.getSession().invalidate();
+                uri = "/";
                 break;
 
             default:

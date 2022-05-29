@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: debora
-  Date: 28/05/2022
-  Time: 14:18
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page isELIgnored="false" %>
@@ -157,37 +150,28 @@
         main h2{
             color: var(--azul);
             font-size: 2em;
-            margin-left: 1.4em;
         }
 
         main section#content{
             width: 100%;
             margin: 0 auto;
-            padding-top: 5rem;
-            display: flex;
-
-        }
-
-        .card {
-            width: 30%;
-            height: 35vh;
-            padding: 2rem 2rem;
-            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
-            border-bottom: 0.25rem solid var(--verde);
-            border-radius: 0.25rem 0.25rem 0 0;
-            text-align: center;
-            margin-left: 3em;
+            padding-top: 1rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
 
         }
 
-        .card a{
+        main section#content .divbutton{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+
+        main section#content .divbutton a{
             background: var(--verde);
             color: var(--azul);
-            width: 90%;
+            width: 17%;
             font-size: 1em;
             padding: 0.8rem;
             border-radius: 3px;
@@ -195,13 +179,9 @@
 
         }
 
-        .card a:hover{
+        main section#content .divbutton a:hover{
             background: var(--azul);
             color: var(--verde);
-        }
-
-        .card img{
-            width:18%;
         }
 
         .popup{
@@ -272,9 +252,13 @@
 
         table {
             border-collapse: collapse;
-            width: 70%;
-            margin:2rem auto;
-            font-size: 14px;
+            width: 80%;
+            margin:5rem auto;
+            font-size: 16px;
+        }
+
+        th{
+            text-align: center;
         }
 
         td, th {
@@ -293,7 +277,6 @@
             width: 16px;
             margin-right: 10px;
         }
-
     </style>
     <title>Veículos</title>
 </head>
@@ -306,7 +289,7 @@
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
                 <li><a href="dashboard?opcao=clientes">Clientes</a></li>
-                <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
+                <li><a href="dashboard?opcao=veiculos" class="active">Veículos</a></li>
                 <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
                 <li><a href="dashboard?opcao=produtos">Produtos</a></li>
             </ul>
@@ -319,19 +302,58 @@
     </div>
 </section>
 <main>
-    <h2>Veículos</h2>
     <section id="content">
-        <div class="card">
-            <img src="./assets/caminhao.png" alt="simbolo de mais verde">
-            <a>Cadastrar novo veículo</a>
+
+        <c:if test="${retorno == 'OK'}">
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Produto Cadastrado com sucesso!</p>
+        </c:if>
+        <c:if test="${retorno == 'erro'}">
+            <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
+        </c:if>
+
+        <div class="divbutton">
+            <h2>Veículos</h2>
+            <a onclick="openPopup()" >Cadastrar novo veículo</a>
         </div>
-        <div class="card">
-            <img src="./assets/list.png" alt="simbolo de mais verde">
-            <a>Listar veículos</a>
+
+        <table>
+            <tr>
+                <th>Placa</th>
+            </tr>
+            <c:forEach var="veiculos" items="${veiculos}">
+                <tr>
+                    <td>${veiculos.placa}</td>
+                    <td><a href="veiculo?opcao=excluir&&id=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                </tr>
+            </c:forEach>
+        </table>
+
+
+        <div class="popup">
+            <div class="conteudo">
+                <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
+                <h3>Novo produto</h3>
+                <form action="veiculo?opcao=cadastrar" method="post">
+                    <div>
+                        <label for="placa">Placa</label>
+                    </div>
+                    <div>
+                        <input
+                                type="text"
+                                name="placa"
+                                placeholder="Placa do veículo"
+                        />
+
+                    </div>
+                    <div class="button">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 </main>
-
+<script src="./script.js"></script>
 </body>
 <script>
     const popup = document.querySelector('.popup')
@@ -343,4 +365,5 @@
         popup.classList.remove('active')
     }
 </script>
+</html>
 </html>
