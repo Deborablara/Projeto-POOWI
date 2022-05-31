@@ -51,6 +51,10 @@
             display: flex;
         }
 
+        .margin-top{
+            margin-top: 1rem;
+        }
+
         /********************** NAVBAR ***********************/
 
 
@@ -218,6 +222,10 @@
             text-align:center;
         }
 
+        .popup .conteudo select{
+            padding: 0.5rem;
+        }
+
         .popup .conteudo form{
             width: 100%;
             margin-top: 2rem;
@@ -236,7 +244,7 @@
         .button{
             display: flex;
             justify-content:flex-end;
-            margin-top: 10rem;
+            margin-top: 8.5rem;
         }
 
         .popup .conteudo form button{
@@ -278,7 +286,7 @@
             margin-right: 10px;
         }
     </style>
-    <title>Veículos</title>
+    <title>Funcionários</title>
 </head>
 <body>
 <section id="navbar">
@@ -289,8 +297,8 @@
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
                 <li><a href="dashboard?opcao=clientes">Clientes</a></li>
-                <li><a href="dashboard?opcao=veiculos" class="active">Veículos</a></li>
-                <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
+                <li><a href="dashboard?opcao=veiculos" >Veículos</a></li>
+                <li><a href="dashboard?opcao=funcionarios" class="active">Funcionários</a></li>
                 <li><a href="dashboard?opcao=produtos">Produtos</a></li>
             </ul>
         </div>
@@ -305,7 +313,7 @@
     <section id="content">
 
         <c:if test="${retorno == 'OK'}">
-            <p style="color:green; text-align: right; margin-bottom: 15px;">Veículo cadastrado com sucesso!</p>
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Funcionário cadastrado com sucesso!</p>
         </c:if>
         <c:if test="${retorno == 'erro'}">
             <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
@@ -313,16 +321,20 @@
 
         <div class="divbutton">
             <h2>Veículos</h2>
-            <a onclick="openPopup()" >Cadastrar novo veículo</a>
+            <a onclick="openPopup()">Novo funcionário</a>
         </div>
 
         <table>
             <tr>
-                <th>Placa</th>
+                <th>Id</th>
+                <th>Nome de Usuario</th>
+                <th>Permissão</th>
             </tr>
-            <c:forEach var="veiculos" items="${veiculos}">
+            <c:forEach var="usuarios" items="${usuarios}">
                 <tr>
-                    <td>${veiculos.placa}</td>
+                    <td>${usuarios.id}</td>
+                    <td>${usuarios.nome}</td>
+                    <td>${usuarios.permissao.nomePermissao}</td>
                     <td><a href="veiculo?opcao=excluir&&id=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
                 </tr>
             </c:forEach>
@@ -333,17 +345,34 @@
             <div class="conteudo">
                 <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
                 <h3>Novo produto</h3>
-                <form action="veiculo?opcao=cadastrar" method="post">
+                <form action="usuario?opcao=cadastrar" method="post">
                     <div>
-                        <label for="placa">Placa</label>
+                        <label for="nome">Nome de Usuario</label>
                     </div>
                     <div>
                         <input
                                 type="text"
-                                name="placa"
-                                placeholder="Placa do veículo"
+                                name="nome"
+                                placeholder="Usuário"
                         />
 
+                    </div>
+                    <div class="margin-top">
+                        <label for="senha">Senha</label>
+                    </div>
+                    <div>
+                        <input
+                                type="password"
+                                name="senha"
+                        />
+
+                    </div>
+                    <div class="margin-top">
+                        <label>Permissao</label>
+                        <select name="permissao">
+                            <option value="1">Colaborador</option>
+                            <option value="2">Administrador</option>
+                        </select>
                     </div>
                     <div class="button">
                         <button type="submit">Cadastrar</button>

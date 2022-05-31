@@ -278,7 +278,7 @@
             margin-right: 10px;
         }
     </style>
-    <title>Veículos</title>
+    <title>Clientes</title>
 </head>
 <body>
 <section id="navbar">
@@ -288,8 +288,8 @@
             <p>MENU</p>
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <li><a href="dashboard?opcao=clientes">Clientes</a></li>
-                <li><a href="dashboard?opcao=veiculos" class="active">Veículos</a></li>
+                <li><a href="dashboard?opcao=clientes" class="active">Clientes</a></li>
+                <li><a href="dashboard?opcao=veiculos" >Veículos</a></li>
                 <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
                 <li><a href="dashboard?opcao=produtos">Produtos</a></li>
             </ul>
@@ -305,24 +305,26 @@
     <section id="content">
 
         <c:if test="${retorno == 'OK'}">
-            <p style="color:green; text-align: right; margin-bottom: 15px;">Veículo cadastrado com sucesso!</p>
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Cliente cadastrado com sucesso!</p>
         </c:if>
         <c:if test="${retorno == 'erro'}">
             <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
         </c:if>
 
         <div class="divbutton">
-            <h2>Veículos</h2>
-            <a onclick="openPopup()" >Cadastrar novo veículo</a>
+            <h2>Clientes</h2>
+            <a onclick="openPopup()">Cadastrar novo cliente</a>
         </div>
 
         <table>
             <tr>
-                <th>Placa</th>
+                <th>Id</th>
+                <th>Nome</th>
             </tr>
-            <c:forEach var="veiculos" items="${veiculos}">
+            <c:forEach var="clientes" items="${clientes}">
                 <tr>
-                    <td>${veiculos.placa}</td>
+                    <td>${clientes.id}</td>
+                    <td>${clientes.nome}</td>
                     <td><a href="veiculo?opcao=excluir&&id=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
                 </tr>
             </c:forEach>
@@ -333,15 +335,15 @@
             <div class="conteudo">
                 <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
                 <h3>Novo produto</h3>
-                <form action="veiculo?opcao=cadastrar" method="post">
+                <form action="cliente?opcao=cadastrar" method="post">
                     <div>
-                        <label for="placa">Placa</label>
+                        <label for="nome">Nome cliente</label>
                     </div>
                     <div>
                         <input
                                 type="text"
-                                name="placa"
-                                placeholder="Placa do veículo"
+                                name="nome"
+                                placeholder="Nome do cliente"
                         />
 
                     </div>

@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -194,7 +192,7 @@
 </section>
 <main>
     <section id="content">
-        <h2>Bem-vindo(a), <span>${usuario_logado.nome}</span></h2>
+        <h2>Bem-vindo(a), <span>Usuário</span></h2>
         <h3>ACESSE O MENU LATERAL</h3>
     </section>
 </main>

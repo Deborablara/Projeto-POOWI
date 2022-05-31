@@ -12,6 +12,9 @@ public class Permissao {
         this.id = id;
 
     }
+    public Permissao( int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;

@@ -305,7 +305,7 @@
     <section id="content">
 
         <c:if test="${retorno == 'OK'}">
-            <p style="color:green; text-align: right; margin-bottom: 15px;">Produto Cadastrado com sucesso!</p>
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Veículo cadastrado com sucesso!</p>
         </c:if>
         <c:if test="${retorno == 'erro'}">
             <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
