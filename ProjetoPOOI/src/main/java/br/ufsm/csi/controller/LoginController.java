@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
             sessao.setAttribute("usuario_logado", u);
              rd = req.getRequestDispatcher("dashboard.jsp");
         }else{
-            rd = req.getRequestDispatcher("login.jsp");
+            rd = req.getRequestDispatcher("index.jsp");
         }
 
         rd.forward(req,resp);

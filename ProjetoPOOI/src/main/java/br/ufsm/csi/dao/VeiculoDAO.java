@@ -35,10 +35,16 @@ public class VeiculoDAO {
         try(Connection connection = new ConectaDB().getConexao()){
             this.sql = "INSERT INTO veiculo(placa) VALUES (?)";
 
-            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement = connection.prepareStatement(this.sql, PreparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setString(1, veiculo.getPlaca());
-
             this.preparedStatement.execute();
+            this.rs = this.preparedStatement.getGeneratedKeys();
+            this.rs.next();
+
+            if (this.rs.getInt(1) > 0) {
+                veiculo.setId(this.rs.getInt(1));
+                this.status = "OK";
+            }
             this.status = "OK";
         }catch(SQLException e){
             e.printStackTrace();
