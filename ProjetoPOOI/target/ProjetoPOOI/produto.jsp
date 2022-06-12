@@ -46,7 +46,7 @@
     </div>
 </section>
 <main>
-    <section id="content">
+    <section class="content">
 
         <c:if test="${retorno == 'OK'}">
             <p style="color:green; text-align: right; margin-bottom: 15px;">Produto Cadastrado com sucesso!</p>

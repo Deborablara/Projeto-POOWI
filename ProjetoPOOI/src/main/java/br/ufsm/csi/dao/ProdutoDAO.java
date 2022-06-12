@@ -24,7 +24,7 @@ public class ProdutoDAO {
                 Produto p = new Produto();
 
                 p.setId(this.rs.getInt("id_produto"));
-                p.setNome(this.rs.getString("nome"));
+                p.setNome(this.rs.getString("nome_produto"));
                 produtos.add(p);
             }
         }catch (SQLException e){

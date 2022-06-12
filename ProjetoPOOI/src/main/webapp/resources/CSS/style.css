@@ -179,8 +179,8 @@ main section.content .divbutton a:hover{
 }
 .button{
   display: flex;
-  justify-content:flex-end;
-  margin-top: 8.5rem;
+  justify-content:center;
+  margin-top: 5rem;
 }
 .popup .conteudo form button{
   background: var(--azul);

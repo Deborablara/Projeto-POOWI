@@ -25,7 +25,7 @@ public class ClienteDAO {
                 Cliente c = new Cliente();
 
                 c.setId(this.rs.getInt("id_cliente"));
-                c.setNome(this.rs.getString("nome"));
+                c.setNome(this.rs.getString("nome_cliente"));
                 clientes.add(c);
             }
 

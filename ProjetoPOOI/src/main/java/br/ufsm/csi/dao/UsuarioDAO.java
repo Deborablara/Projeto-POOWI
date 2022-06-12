@@ -61,7 +61,7 @@ public class UsuarioDAO {
 
                 Permissao permissao = new Permissao();
                 permissao.setId(this.rs.getInt("id_permissao"));
-                permissao.setNome(this.rs.getString("nomePermissao"));
+                permissao.setNome(this.rs.getString("nome_permissao"));
 
                 usuario.setPermissao(permissao);
 

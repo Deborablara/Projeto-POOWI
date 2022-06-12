@@ -38,7 +38,7 @@
     </div>
 </section>
 <main>
-    <section id="content">
+    <section class="content">
 
         <c:if test="${retorno == 'OK'}">
             <p style="color:green; text-align: right; margin-bottom: 15px;">Funcionário cadastrado com sucesso!</p>
