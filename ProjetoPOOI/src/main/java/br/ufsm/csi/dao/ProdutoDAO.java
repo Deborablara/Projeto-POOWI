@@ -37,7 +37,7 @@ public class ProdutoDAO {
 
     public String Cadastrar(Produto p){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "INSERT INTO produto(nome) VALUES (?)";
+            this.sql = "INSERT INTO produto(nome_produto) VALUES (?)";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, p.getNome());

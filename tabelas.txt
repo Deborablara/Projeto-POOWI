@@ -16,7 +16,7 @@ create table produto(
 
 create table cliente(
 	id_cliente serial UNIQUE PRIMARY KEY,
-	nome varchar(50) NOT NULL unique
+	nome_cliente varchar(50) NOT NULL unique
 );
 
 create table veiculo(
@@ -25,7 +25,7 @@ create table veiculo(
 
 create table permissao(
 	id_permissao serial UNIQUE PRIMARY KEY,
-	nome varchar(50) NOT NULL unique
+	nome_permissao varchar(50) NOT NULL unique
 );
 
 create table usuario_permissao(

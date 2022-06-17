@@ -38,7 +38,7 @@ public class ClienteDAO {
 
     public String Cadastrar(Cliente c){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "INSERT INTO cliente(nome) values (?)";
+            this.sql = "INSERT INTO cliente(nome_cliente) values (?)";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, c.getNome());
