@@ -103,21 +103,39 @@ main{
   margin-left: 18vw;
   padding: 2em;
 }
-main h2{
-  color: var(--azul);
-  font-size: 2em;
-}
-main section#content{
+
+main section.content{
   width: 100%;
   margin: 0 auto;
-  padding-top: 1rem;
   display: flex;
   flex-direction: column;
 }
+
+
 main section.content .divbutton{
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+main section.content .divbutton h2{
+  color: var(--verde);
+  font-size: 2em;
+}
+
+
+main section.content .form-visualizar{
+  margin-top:3rem;
+}
+main section.content .form-visualizar form label{
+  font-size: 18px;
+}
+main section.content .form-visualizar form input{
+  background:#00000017;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
 }
 main section.content .divbutton a{
   background:var(--azul);
@@ -132,7 +150,7 @@ main section.content .divbutton a:hover{
   background: var(--azul);
   color: var(--verde);
 }
-.popup{
+.popup {
   background: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
@@ -181,6 +199,49 @@ main section.content .divbutton a:hover{
   display: flex;
   justify-content:center;
   margin-top: 5rem;
+}
+.botoes{
+  width: 30%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.botoes a{
+  color: var(--branco);
+  width: 30%;
+  text-align: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+}
+.botoes button{
+  color: var(--branco);
+  width: 30%;
+  text-align: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+}
+
+.botoes  a:hover{
+  box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.botoes  button:hover{
+  box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.botoes button.editar{
+  background: var(--azul);
+}
+.botoes a.excluir{
+  background: #dc2323;
+}
+.botoes a.cancelar{
+  background: darkgrey;
 }
 .popup .conteudo form button{
   background: var(--azul);

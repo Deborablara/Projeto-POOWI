@@ -41,68 +41,45 @@
     <section class="content">
 
         <c:if test="${retorno == 'OK'}">
-            <p style="color:green; text-align: right; margin-bottom: 15px;">Veículo cadastrado com sucesso!</p>
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Veículo alterado com sucesso!</p>
         </c:if>
         <c:if test="${retorno == 'erro'}">
             <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
         </c:if>
 
         <div class="divbutton">
-            <h2>Veículos</h2>
-            <a onclick="openPopup()" >Cadastrar novo veículo</a>
+            <h2>Veículo</h2>
         </div>
 
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Placa</th>
-            </tr>
-            <c:forEach var="veiculos" items="${veiculos}">
-                <tr>
-                    <td>${veiculos.id}</td>
-                    <td>${veiculos.placa}</td>
-                    <td style="text-align: center"><a href="veiculo?opcao=ver&&placa=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
-                </tr>
-            </c:forEach>
-        </table>
+        <div class="form-visualizar">
+            <form  action="veiculo?opcao=editar" method="post">
+                <div>
+                    <label for="placa">Placa</label>
+                </div>
+                <div>
+                    <input
+                            type="text"
+                            name="placa"
+                            value="${veiculo.placa}"
+                    />
 
-
-        <div class="popup">
-            <div class="conteudo">
-                <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
-                <h3>Novo produto</h3>
-                <form action="veiculo?opcao=cadastrar" method="post">
-                    <div>
-                        <label for="placa">Placa</label>
-                    </div>
-                    <div>
-                        <input
-                                type="text"
-                                name="placa"
-                                placeholder="Placa do veículo"
-                        />
-
-                    </div>
-                    <div class="button">
-                        <button type="submit">Cadastrar</button>
-                    </div>
-                </form>
+                    <input
+                            type="hidden"
+                            name="id"
+                            value="${veiculo.id}"
+                    />
+            </form>
+            <div class="botoes">
+                <button type="submit" class="editar">Editar</button>
+                <a href="veiculo?opcao=excluir&&id=${veiculo.id}" class="excluir">Excluir</a>
+                <a href="veiculo?opcao=cancelar" class="cancelar">Cancelar</a>
             </div>
         </div>
 
+
+
     </section>
 </main>
-<script src="./script.js"></script>
 </body>
-<script>
-    const popup = document.querySelector('.popup')
-
-    function openPopup() {
-        popup.classList.add('active')
-    }
-    function closePopup() {
-        popup.classList.remove('active')
-    }
-</script>
 </html>
 </html>

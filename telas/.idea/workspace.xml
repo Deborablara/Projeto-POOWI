@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a3d8b043-5a9b-4f5e-aeef-bc7f670d9ce8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/src/main/java/br/ufsm/csi/controller/VeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/src/main/java/br/ufsm/csi/controller/VeiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/src/main/java/br/ufsm/csi/dao/VeiculoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/src/main/java/br/ufsm/csi/dao/VeiculoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/src/main/java/br/ufsm/csi/model/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/src/main/java/br/ufsm/csi/model/Veiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/src/main/webapp/resources/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/src/main/webapp/resources/CSS/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/src/main/webapp/veiculo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/src/main/webapp/veiculo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI.war" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/WEB-INF/classes/br/ufsm/csi/controller/VeiculoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/WEB-INF/classes/br/ufsm/csi/controller/VeiculoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/WEB-INF/classes/br/ufsm/csi/dao/VeiculoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/WEB-INF/classes/br/ufsm/csi/dao/VeiculoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/WEB-INF/classes/br/ufsm/csi/model/Veiculo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/WEB-INF/classes/br/ufsm/csi/model/Veiculo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/resources/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/resources/CSS/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/veiculo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/ProjetoPOOI/veiculo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/classes/br/ufsm/csi/controller/VeiculoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/classes/br/ufsm/csi/controller/VeiculoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/classes/br/ufsm/csi/dao/VeiculoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/classes/br/ufsm/csi/dao/VeiculoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjetoPOOI/target/classes/br/ufsm/csi/model/Veiculo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoPOOI/target/classes/br/ufsm/csi/model/Veiculo.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2Akm208uPPr5TJBmH7F9ZfSsMLM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/debora/Área de Trabalho/ProjetoPOO1/telas"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3d8b043-5a9b-4f5e-aeef-bc7f670d9ce8" name="Changes" comment="" />
+      <created>1655561747597</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655561747597</updated>
+      <workItem from="1655561749607" duration="1000" />
+    </task>
+    <servers />
+  </component>
+</project>

@@ -20,20 +20,54 @@ public class VeiculoController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String opcao = req.getParameter("opcao");
-        String placa = req.getParameter("placa");
-        Veiculo v = new Veiculo(placa);
         VeiculoDAO dao = new VeiculoDAO();
         String uri = " ";
         String retorno = "";
 
         switch (opcao){
             case "cadastrar":
+                String placa = req.getParameter("placa");
+                Veiculo v = new Veiculo(placa);
 
                 retorno = dao.Cadastrar(v);
                 req.setAttribute("retorno", retorno);
                 req.setAttribute("veiculos", dao.getVeiculos());
                 uri = "veiculo.jsp";
 
+                break;
+            case "ver":
+                String buscarplaca = req.getParameter("placa");
+                Veiculo veiculo =  dao.GetVeiculo(buscarplaca);
+                req.setAttribute("veiculo", veiculo);
+                uri = "VerVeiculo.jsp";
+                break;
+            case "editar":
+                int id = Integer.parseInt(req.getParameter("id"));
+                String placaEdit = req.getParameter("placa");
+                Veiculo veiculoEdit = new Veiculo(placaEdit, id);
+                retorno = dao.Editar(veiculoEdit);
+                if(retorno.equals("OK")){
+                    req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
+                    uri = "veiculo.jsp";
+                    break;
+                }else{
+                    req.setAttribute("retorno", retorno);
+                    uri = "VerVeiculo.jsp";
+                    break;
+                }
+            case "excluir":
+                int idVeiculo = Integer.parseInt(req.getParameter("id"));
+                retorno = dao.Excluir(idVeiculo);
+                if(retorno.equals("OK")){
+                    req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
+                    uri="veiculo.jsp";
+                }
+                break;
+            case "cancelar":
+                req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
+                uri="veiculo.jsp";
+                break;
+            default:
                 break;
         }
         RequestDispatcher rd = req.getRequestDispatcher(uri);

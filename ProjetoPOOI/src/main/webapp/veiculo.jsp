@@ -54,12 +54,14 @@
 
         <table>
             <tr>
+                <th>Id</th>
                 <th>Placa</th>
             </tr>
             <c:forEach var="veiculos" items="${veiculos}">
                 <tr>
+                    <td>${veiculos.id}</td>
                     <td>${veiculos.placa}</td>
-                    <td><a href="veiculo?opcao=excluir&&id=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                    <td style="text-align: center"><a href="veiculo?opcao=ver&&placa=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
                 </tr>
             </c:forEach>
         </table>
@@ -87,6 +89,7 @@
                 </form>
             </div>
         </div>
+
     </section>
 </main>
 <script src="./script.js"></script>

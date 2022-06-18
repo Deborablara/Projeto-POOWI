@@ -6,9 +6,14 @@ public class Veiculo {
 
     public Veiculo() {
     }
-
     public Veiculo(String placa) {
         this.placa = placa;
+    }
+
+    public Veiculo(String placa, int id) {
+
+        this.placa = placa;
+        this.id = id;
     }
 
     public String getPlaca() {
