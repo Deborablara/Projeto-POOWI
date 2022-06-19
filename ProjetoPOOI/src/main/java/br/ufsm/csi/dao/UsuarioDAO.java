@@ -147,6 +147,7 @@ public class UsuarioDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            this.status = "erro";
         }
         return this.status;
     }

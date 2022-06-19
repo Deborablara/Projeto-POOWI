@@ -14,7 +14,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="resources/CSS/style.css">
-    <title>Usuário</title>
+    <title>Funcionário</title>
 </head>
 <body>
 <section id="navbar">
@@ -41,7 +41,7 @@
     <section class="content">
 
         <div class="divbutton">
-            <h2>Usuários</h2>
+            <h2>Funcionário</h2>
         </div>
 
         <div class="form-visualizar">
@@ -79,23 +79,11 @@
                         <option value="1">Administrador</option>
                     </select>
                 </div>
-                <input
-                        type="hidden"
-                        name="id"
-                        value="${usuario.id}"
-                        name="id"
-                />
-                <input
-                        type="hidden"
-                        name="id"
-                        value="${usuario.permissao.id}"
-                        name="permissao";
-                />
             </form>
             <div class="botoes">
                 <button type="submit" class="editar">Editar</button>
-                <a href="veiculo?opcao=excluir" class="excluir">Excluir</a>
-                <a href="veiculo?opcao=cancelar" class="cancelar">Cancelar</a>
+                <a href="usuario?opcao=excluir&&id=${usuario.id}&&permissao=${usuario.permissao.id}" class="excluir">Excluir</a>
+                <a href="usuario?opcao=cancelar" class="cancelar">Cancelar</a>
             </div>
         </div>
     </section>

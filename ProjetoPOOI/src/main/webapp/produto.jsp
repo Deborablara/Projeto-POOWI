@@ -89,6 +89,7 @@
                                 type="text"
                                 name="descricao"
                                 placeholder="Nome do produto"
+                                required
                         />
 
                     </div>

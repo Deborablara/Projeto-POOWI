@@ -80,6 +80,7 @@
                                 type="text"
                                 name="nome"
                                 placeholder="Nome do cliente"
+                                required
                         />
 
                     </div>

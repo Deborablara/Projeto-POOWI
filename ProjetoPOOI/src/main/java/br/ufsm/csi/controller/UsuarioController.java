@@ -18,7 +18,7 @@ public class UsuarioController extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String opcao = req.getParameter("opcao");
         String nome = req.getParameter("nome");
-        String senha = req.getParameter("acesso");
+        String senha = req.getParameter("senha");
         int permissao = Integer.parseInt(req.getParameter("permissao"));
         Permissao p = new Permissao(permissao);
         Usuario u = new Usuario(nome, senha, p);

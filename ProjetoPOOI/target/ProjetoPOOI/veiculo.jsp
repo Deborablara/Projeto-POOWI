@@ -80,6 +80,7 @@
                                 type="text"
                                 name="placa"
                                 placeholder="Placa do veículo"
+                                required
                         />
 
                     </div>

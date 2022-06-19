@@ -83,6 +83,7 @@
                                 type="text"
                                 name="nome"
                                 placeholder="Usuário"
+                                required
                         />
 
                     </div>
@@ -93,6 +94,7 @@
                         <input
                                 type="password"
                                 name="senha"
+                                required
                         />
 
                     </div>
