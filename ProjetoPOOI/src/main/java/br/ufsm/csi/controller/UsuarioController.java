@@ -18,7 +18,7 @@ public class UsuarioController extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String opcao = req.getParameter("opcao");
         String nome = req.getParameter("nome");
-        String senha = req.getParameter("senha");
+        String senha = req.getParameter("acesso");
         int permissao = Integer.parseInt(req.getParameter("permissao"));
         Permissao p = new Permissao(permissao);
         Usuario u = new Usuario(nome, senha, p);
@@ -35,6 +35,25 @@ public class UsuarioController extends HttpServlet {
 
                 uri = "funcionario.jsp";
 
+                break;
+
+            case "excluir":
+                int id = Integer.parseInt(req.getParameter("id"));
+                retorno = dao.Deletar(id);
+                if(retorno.equals("OK")){
+                    req.setAttribute("usuarios", dao.getUsuarios());
+                    uri = "funcionario.jsp";
+                }
+                break;
+            case "ver":
+                int idUs = Integer.parseInt(req.getParameter("id"));
+                Usuario usuario = dao.GetUsuarioPermissao(idUs);
+                req.setAttribute("usuario", usuario);
+
+                uri = "VerUsuario.jsp";
+
+                break;
+            default:
                 break;
         }
 

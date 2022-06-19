@@ -63,7 +63,8 @@
                     <td>${usuarios.id}</td>
                     <td>${usuarios.nome}</td>
                     <td>${usuarios.permissao.nomePermissao}</td>
-                    <td><a href="veiculo?opcao=excluir&&id=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+
+                    <td><a href="usuario?opcao=ver&&id=${usuarios.id}&&permissao=${usuarios.permissao.id}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
                 </tr>
             </c:forEach>
         </table>

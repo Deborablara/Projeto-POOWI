@@ -43,6 +43,38 @@ public class UsuarioDAO {
 
     }
 
+    public Usuario GetUsuarioPermissao(int id){
+        Usuario us = null;
+
+        try(Connection conn = new ConectaDB().getConexao()){
+            this.sql = "select * from usuario_permissao, usuario, permissao" +
+                    " where usuario.id_usuario = usuario_permissao.id_usuario " +
+                    "and permissao.id_permissao = usuario_permissao.id_permissao and usuario.id_usuario=?;";
+
+            this.preparedStatement = conn.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, id);
+            this.rs = preparedStatement.executeQuery();
+
+            while(this.rs.next()){
+                us = new Usuario();
+                us.setId(this.rs.getInt("id_usuario"));
+                us.setNome(this.rs.getString("nome"));
+                us.setPassword(this.rs.getString("password"));
+
+                Permissao p = new Permissao();
+                p.setId(this.rs.getInt("id_permissao"));
+                p.setNome(this.rs.getString("nome_permissao"));
+                us.setPermissao(p);
+
+                return us;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+
+        }
+        return us;
+    }
+
     public ArrayList<Usuario> getUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         try (Connection connection = new ConectaDB().getConexao()) {
@@ -73,6 +105,8 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
+
+
 
     public String Cadastrar(Usuario u) {
         try (Connection connection = new ConectaDB().getConexao()) {
@@ -142,7 +176,7 @@ public class UsuarioDAO {
         return null;
     }
 
-    public void Deletar(int id){
+    public String Deletar(int id){
         try(Connection connection = new ConectaDB().getConexao()){
             this.sql = "BEGIN;" +
                     "DELETE FROM usuario_permissao WHERE id_usuario=?;" +
@@ -153,9 +187,13 @@ public class UsuarioDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.setInt(2, id);
             this.preparedStatement.executeUpdate();
+            this.status = "OK";
         }catch (SQLException e){
             e.printStackTrace();
+            this.status = "erro";
         }
+
+        return this.status;
     }
 
 }
