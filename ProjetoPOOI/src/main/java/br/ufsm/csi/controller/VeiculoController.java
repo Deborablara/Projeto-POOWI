@@ -39,13 +39,16 @@ public class VeiculoController extends HttpServlet {
                 String buscarplaca = req.getParameter("placa");
                 Veiculo veiculo =  dao.GetVeiculo(buscarplaca);
                 req.setAttribute("veiculo", veiculo);
+
                 uri = "VerVeiculo.jsp";
                 break;
             case "editar":
                 int id = Integer.parseInt(req.getParameter("id"));
                 String placaEdit = req.getParameter("placa");
                 Veiculo veiculoEdit = new Veiculo(placaEdit, id);
+
                 retorno = dao.Editar(veiculoEdit);
+
                 if(retorno.equals("OK")){
                     req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
                     uri = "veiculo.jsp";

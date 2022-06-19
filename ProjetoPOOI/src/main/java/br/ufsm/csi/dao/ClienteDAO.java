@@ -53,6 +53,58 @@ public class ClienteDAO {
 
         return this.status;
     }
+
+    public Cliente GetCliente(int id){
+        Cliente cliente = new Cliente();
+
+        try(Connection connection = new ConectaDB().getConexao()){
+            this.sql = "SELECT * FROM cliente where id_cliente=?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, id);
+            this.rs = this.preparedStatement.executeQuery();
+
+            while(this.rs.next()){
+                cliente.setId(this.rs.getInt("id_cliente"));
+                cliente.setNome(this.rs.getString("nome_cliente"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return cliente;
+    }
+
+    public String Editar(Cliente cliente){
+        try(Connection connection = new ConectaDB().getConexao()){
+            this.sql = "UPDATE cliente set nome_cliente=? where id_cliente=?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setString(1, cliente.getNome());
+            this.preparedStatement.setInt(2, cliente.getId());
+            this.preparedStatement.executeUpdate();
+            this.status = "OK";
+        }catch (SQLException e){
+            e.printStackTrace();
+            this.status = "ERRO";
+        }
+        return this.status;
+    }
+
+    public String Excluir(int id){
+        try(Connection connection = new ConectaDB().getConexao()){
+            this.sql = "delete from cliente where id_cliente=?";
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, id);
+            this.preparedStatement.executeUpdate();
+            this.status = "OK";
+        }catch (SQLException e){
+            e.printStackTrace();
+            this.status = "ERRO";
+        }
+
+        return this.status;
+    }
+
 }
 
 

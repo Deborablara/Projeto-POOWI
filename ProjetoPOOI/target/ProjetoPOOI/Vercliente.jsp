@@ -14,7 +14,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="resources/CSS/style.css">
-    <title>Veículos</title>
+    <title>Cliente</title>
 </head>
 <body>
 <section id="navbar">
@@ -24,8 +24,8 @@
             <p>MENU</p>
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <li><a href="dashboard?opcao=clientes">Clientes</a></li>
-                <li><a href="dashboard?opcao=veiculos" class="active">Veículos</a></li>
+                <li><a href="dashboard?opcao=clientes" class="active">Clientes</a></li>
+                <li><a href="dashboard?opcao=veiculos" >Veículos</a></li>
                 <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
                 <li><a href="dashboard?opcao=produtos">Produtos</a></li>
             </ul>
@@ -39,33 +39,33 @@
 </section>
 <main>
     <section class="content">
-
         <div class="divbutton">
-            <h2>Veículo</h2>
+            <h2>Cliente</h2>
         </div>
 
         <div class="form-visualizar">
-            <form  action="veiculo?opcao=editar" method="post">
+            <form action="cliente?opcao=editar" method="post">
                 <div>
-                    <label for="placa">Placa</label>
+                    <label for="nome">Nome do cliente</label>
                 </div>
                 <div>
                     <input
                             type="text"
-                            name="placa"
-                            value="${veiculo.placa}"
+                            name="nome"
+                            value="${cliente.nome}"
                     />
-
                     <input
                             type="hidden"
                             name="id"
-                            value="${veiculo.id}"
+                            value="${cliente.id}"
                     />
+
+
             </form>
             <div class="botoes">
                 <button type="submit" class="editar">Editar</button>
-                <a href="veiculo?opcao=excluir&&id=${veiculo.id}" class="excluir">Excluir</a>
-                <a href="veiculo?opcao=cancelar" class="cancelar">Cancelar</a>
+                <a href="cliente?opcao=excluir&&id=${cliente.id}" class="excluir">Excluir</a>
+                <a href="cliente?opcao=cancelar" class="cancelar">Cancelar</a>
             </div>
         </div>
 
@@ -75,4 +75,4 @@
 </main>
 </body>
 </html>
-</html>
+

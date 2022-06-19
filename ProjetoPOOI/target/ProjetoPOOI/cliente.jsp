@@ -61,7 +61,7 @@
                 <tr>
                     <td>${clientes.id}</td>
                     <td>${clientes.nome}</td>
-                    <td><a href="veiculo?opcao=excluir&&id=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                    <td><a href="cliente?opcao=ver&&id=${clientes.id}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar</a></td>
                 </tr>
             </c:forEach>
         </table>
