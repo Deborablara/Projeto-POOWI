@@ -22,7 +22,7 @@ public class DashboardController extends HttpServlet {
 
         switch (opcao){
             case "pedidos":
-                uri = "pedido.jsp";
+                uri = "Pedido.jsp";
 
                 break;
 

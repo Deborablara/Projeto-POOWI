@@ -8,7 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  color: #000000;
+  color: var(--azul);
 }
 a {
   text-decoration: none;
@@ -152,6 +152,14 @@ main section.content .divbutton a:hover{
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+main section.content .selecionar{
+  display: flex;
+  width: 100%;
+  margin-top: 3rem;
+  justify-content:space-around;
+  font-size: 14px;
+}
 .popup {
   background: rgba(0, 0, 0, 0.5);
   width: 100vw;
@@ -217,6 +225,8 @@ main section.content .divbutton a:hover{
   padding: 0.5rem;
   border: none;
   border-radius: 3px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 .botoes button{
   color: var(--branco);
@@ -225,14 +235,18 @@ main section.content .divbutton a:hover{
   padding: 0.5rem;
   border: none;
   border-radius: 3px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 .botoes  a:hover{
-  box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .botoes  button:hover{
-  box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 
@@ -257,7 +271,7 @@ main section.content .divbutton a:hover{
 table {
   border-collapse: collapse;
   width: 80%;
-  margin:5rem auto;
+  margin:2rem auto;
   font-size: 16px;
 }
 th{
