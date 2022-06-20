@@ -65,6 +65,7 @@ section#navbar #menu p{
   text-align: left;
   width: 100%;
   list-style-type: none;
+
 }
 #menu ul li a{
   width: 100%;
@@ -144,11 +145,12 @@ main section.content .divbutton a{
   font-size: 1em;
   padding: 0.8rem;
   border-radius: 3px;
-  transition: color 0.3s;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 main section.content .divbutton a:hover{
-  background: var(--azul);
-  color: var(--verde);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .popup {
   background: rgba(0, 0, 0, 0.5);
