@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,47 +50,245 @@
 
         <div class="divbutton">
             <h2>Pedidos</h2>
-            <a onclick="openPopup()" >Novo Pedido</a>
+            <a onclick="openPopup()" style="text-align: center">Novo Pedido</a>
         </div>
 
         <div class="selecionar">
-            <p>Listar por:</p></br>
+            <p>Filtrar por:</p></br>
             <div>
-                <input type="radio" name="dataEntrega">
-                <label for="dataEntrega">Prazo de Entrega</label>
+                <input type="radio" name="filtro">
+                <label>Prazo de Entrega</label>
             </div>
             <div>
-                <input type="radio" name="pendente">
-                <label for="pendente">Pendentes</label>
+                <input type="radio" name="filtro">
+                <label>Pendentes</label>
             </div>
             <div>
-                <input type="radio" name="producao">
-                <label for="producao">Em produção</label>
+                <input type="radio" name="filtro">
+                <label>Em produção</label>
             </div>
             <div>
-                <input type="radio" name="produzido">
-                <label for="produzido">Produzido</label>
+                <input type="radio" name="filtro">
+                <label>Produzido</label>
             </div>
             <div>
-                <input type="radio" name="carregado">
-                <label for="carregado">Carregado</label>
+                <input type="radio" name="filtro">
+                <label>Carregado</label>
             </div>
             <div>
-                <input type="radio" name="">
-                <label for="dataEntrega">Número da placa</label>
+                <input type="radio" name="filtro">
+                <label>Número da placa</label>
             </div>
         </div>
 
         <table>
             <tr>
-                <th>Id</th>
-                <th>nome</th>
+                <th>Nº Pedido</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Cliente</th>
+                <th>Data do pedido</th>
+                <th>Data de entrega</th>
+                <th>Status</th>
             </tr>
 
             <tr>
                 <td>0</td>
                 <td>teste</td>
-                <td style="text-align: center"><a href="veiculo?opcao=ver"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
             </tr>
 
         </table>

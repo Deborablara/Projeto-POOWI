@@ -141,6 +141,7 @@ main section.content .form-visualizar form input{
 main section.content .divbutton a{
   background:var(--azul);
   color: var(--branco);
+  text-align: center;
   width: 17%;
   font-size: 1em;
   padding: 0.8rem;
@@ -156,7 +157,7 @@ main section.content .divbutton a:hover{
 main section.content .selecionar{
   display: flex;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 5rem;
   justify-content:space-around;
   font-size: 14px;
 }
