@@ -30,10 +30,12 @@
             <p>MENU</p>
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <li><a href="dashboard?opcao=clientes">Clientes</a></li>
-                <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
-                <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                <li><a href="dashboard?opcao=produtos">Produtos</a></li>
+                <c:if test="${usuario_logado.permissao.nomePermissao == 'admin'}">
+                    <li><a href="dashboard?opcao=clientes">${usuario_logado.permissao.id}</a></li>
+                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
+                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
+                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
+                </c:if>
             </ul>
         </div>
     </div >

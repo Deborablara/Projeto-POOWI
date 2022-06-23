@@ -18,7 +18,9 @@ public class UsuarioDAO {
         Usuario us = null;
 
         try(Connection conn = new ConectaDB().getConexao()){
-            this.sql = "select id_usuario, nome, password from usuario where nome=? and password=?";
+            this.sql = "select * from usuario_permissao, usuario, permissao" +
+                    "                    where usuario.id_usuario = usuario_permissao.id_usuario" +
+                    "                    and permissao.id_permissao = usuario_permissao.id_permissao and usuario.nome=? and usuario.password = ?;";
 
             this.preparedStatement = conn.prepareStatement(this.sql);
             this.preparedStatement.setString(1, usuario);
@@ -32,6 +34,12 @@ public class UsuarioDAO {
                 us.setId(this.rs.getInt("id_usuario"));
                 us.setNome(this.rs.getString("nome"));
                 us.setPassword(this.rs.getString("password"));
+
+                Permissao p = new Permissao();
+                p.setId(this.rs.getInt("id_permissao"));
+                p.setNome(this.rs.getString("nome_permissao"));
+                us.setPermissao(p);
+
 
                 return us;
             }

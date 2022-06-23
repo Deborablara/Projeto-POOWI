@@ -13,6 +13,7 @@ public class UsuarioService {
         try{
             if(u.getNome().equals(usuario) && u.getPassword().equals(senha)){
                 System.out.println(u.getNome());
+                System.out.println(u.getPermissao().getNomePermissao());
                 return u;
             }
         }catch (Exception e){

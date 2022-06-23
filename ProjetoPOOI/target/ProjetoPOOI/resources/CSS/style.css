@@ -184,19 +184,22 @@ main section.content .selecionar{
 .popup .conteudo img{
   width:3%;
   float: right;
+  cursor: pointer;
 }
 .popup .conteudo h3{
   margin-top:30px;
   font-size: 1.5em;
   text-align:center;
 }
-
-.popup .conteudo select{
-
-}
 .popup .conteudo form{
   width: 100%;
   margin-top: 2rem;
+}
+
+.popup .conteudo form .inputs-pedido{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .popup .conteudo form input{
   width: 100%;

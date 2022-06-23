@@ -99,7 +99,7 @@
                 <td>teste</td>
                 <td>teste</td>
                 <td>teste</td>
-                <td>teste</td>
+                <td>Pendente</td>
             </tr>
             <tr>
                 <td>0</td>
@@ -108,7 +108,7 @@
                 <td>teste</td>
                 <td>teste</td>
                 <td>teste</td>
-                <td>teste</td>
+                <td>Pendente</td>
             </tr>
             <tr>
                 <td>0</td>
@@ -117,7 +117,7 @@
                 <td>teste</td>
                 <td>teste</td>
                 <td>teste</td>
-                <td>teste</td>
+                <td>Pendente</td>
             </tr>
         </table>
 
@@ -126,7 +126,7 @@
             <div class="conteudo">
                 <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
                 <h3>Novo pedido</h3>
-                <form action="veiculo?opcao=cadastrar" method="post">
+                <form action="pedido?opcao=cadastrar" method="post">
                     <div>
                         <label>Produto:</label>
                         <select name="produto">
@@ -137,8 +137,8 @@
                         </select>
                     </div>
                     <div class="margin-top">
-                        <label for="quantidade">Quantidade:</label>
-                        <input type="number" name="quantidade">
+                        <label for="quantidade">Quantidade (t):</label>
+                        <input type="number" name="quantidade" step="00.0">
                     </div>
                     <div class="margin-top">
                         <label>Cliente:</label>
