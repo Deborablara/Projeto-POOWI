@@ -70,7 +70,7 @@
                 <tr>
                     <td>${produtos.id}</td>
                     <td>${produtos.nome}</td>
-                    <td><a href="produto?opcao=excluir&&id=${p.id}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                    <td><a href="produto?opcao=ver&&id=${produtos.id}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
                 </tr>
             </c:forEach>
         </table>

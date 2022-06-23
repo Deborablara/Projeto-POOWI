@@ -14,7 +14,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="resources/CSS/style.css">
-    <title>Cliente</title>
+    <title>Produto</title>
 </head>
 <body>
 <section id="navbar">
@@ -24,10 +24,10 @@
             <p>MENU</p>
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <li><a href="dashboard?opcao=clientes" class="active">Clientes</a></li>
+                <li><a href="dashboard?opcao=clientes">Clientes</a></li>
                 <li><a href="dashboard?opcao=veiculos" >Veículos</a></li>
                 <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                <li><a href="dashboard?opcao=produtos">Produtos</a></li>
+                <li><a href="dashboard?opcao=produtos"  class="active">Produtos</a></li>
             </ul>
         </div>
     </div >
@@ -40,32 +40,31 @@
 <main>
     <section class="content">
         <div class="divbutton">
-            <h2>Cliente</h2>
+            <h2>Produto</h2>
         </div>
 
         <div class="form-visualizar">
-            <form action="cliente?opcao=editar" method="post">
+            <form action="produto?opcao=editar" method="post">
                 <div>
-                    <label for="nome">Nome do cliente</label>
+                    <label for="nome">Nome do produto</label>
                 </div>
                 <div>
                     <input
                             type="text"
                             name="nome"
-                            value="${cliente.nome}"
+                            value="${produto.nome}"
                     />
                     <input
                             type="hidden"
                             name="id"
-                            value="${cliente.id}"
+                            value="${produto.id}"
                     />
-                </div>
 
             </form>
             <div class="botoes">
                 <button type="submit" class="editar">Editar</button>
-                <a href="cliente?opcao=excluir&&id=${cliente.id}" class="excluir">Excluir</a>
-                <a href="cliente?opcao=cancelar" class="cancelar">Cancelar</a>
+                <a href="produto?opcao=excluir&&id=${produto.id}" class="excluir">Excluir</a>
+                <a href="produto?opcao=cancelar" class="cancelar">Cancelar</a>
             </div>
         </div>
 
@@ -75,4 +74,3 @@
 </main>
 </body>
 </html>
-

@@ -72,5 +72,43 @@ public class ProdutoDAO {
         return this.status;
     }
 
+    public Produto getProduto(int id){
+        Produto p = new Produto();
+
+        try(Connection connection = new ConectaDB().getConexao()){
+            this.sql = "SELECT * FROM produto where id_produto = ?";
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, id);
+            this.rs = this.preparedStatement.executeQuery();
+
+            while(this.rs.next()){
+                p.setId(this.rs.getInt("id_produto"));
+                p.setNome(this.rs.getString("nome_produto"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return p;
+    }
+
+    public String Excluir (int id){
+        try(Connection connection = new ConectaDB().getConexao()){
+            this.sql = "delete from produto where id_produto = ?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, id);
+            this.preparedStatement.executeUpdate();
+
+            this.status = "OK";
+        }catch (SQLException e){
+            e.printStackTrace();
+            this.status = "ERRO";
+        }
+
+        return this.status;
+    }
+
+
 
 }

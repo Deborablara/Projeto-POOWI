@@ -59,7 +59,7 @@
                             name="id"
                             value="${cliente.id}"
                     />
-
+                </div>
 
             </form>
             <div class="botoes">

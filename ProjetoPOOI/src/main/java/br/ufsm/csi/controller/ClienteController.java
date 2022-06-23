@@ -53,7 +53,7 @@ public class ClienteController extends HttpServlet {
                 retorno = dao.Editar(clienteEdit);
 
                 if(retorno.equals("OK")){
-                    req.setAttribute("clientes", new ClienteDAO().getClientes());
+                    req.setAttribute("clientes", dao.getClientes());
                     uri = "cliente.jsp";
 
                 }else{
@@ -65,7 +65,7 @@ public class ClienteController extends HttpServlet {
 
 
             case "cancelar":
-                req.setAttribute("clientes", new ClienteDAO().getClientes());
+                req.setAttribute("clientes", dao.getClientes());
                 uri = "cliente.jsp";
                 break;
 
@@ -74,7 +74,7 @@ public class ClienteController extends HttpServlet {
                 int idExcluir = Integer.parseInt(req.getParameter("id"));
                 retorno = dao.Excluir(idExcluir);
                 if(retorno.equals("OK")){
-                    req.setAttribute("clientes", new ClienteDAO().getClientes());
+                    req.setAttribute("clientes", dao.getClientes());
                     uri="cliente.jsp";
                 }
                 break;

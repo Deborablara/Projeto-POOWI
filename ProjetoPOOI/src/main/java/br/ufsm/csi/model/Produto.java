@@ -10,6 +10,10 @@ public class Produto {
     public Produto(String nome) {
         this.nome = nome;
     }
+    public Produto(String nome, int id) {
+        this.nome = nome;
+        this.id = id;
+    }
 
     public int getId() {
         return id;
