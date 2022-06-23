@@ -15,7 +15,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="resources/CSS/style.css">
-    <title>Veículos</title>
+    <title>Pedidos</title>
 </head>
 <body>
 <section id="navbar">
@@ -119,197 +119,40 @@
                 <td>teste</td>
                 <td>teste</td>
             </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-            </tr>
-
         </table>
 
 
         <div class="popup">
             <div class="conteudo">
                 <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
-                <h3>Novo produto</h3>
+                <h3>Novo pedido</h3>
                 <form action="veiculo?opcao=cadastrar" method="post">
                     <div>
-                        <label for="placa">Placa</label>
+                        <label>Produto:</label>
+                        <select name="produto">
+                            <c:forEach var="produto" items="${produtos}">
+                                <option value="${produto.id}">${produto.nome}</option>
+                            </c:forEach>
+
+                        </select>
+                    </div>
+                    <div class="margin-top">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" name="quantidade">
+                    </div>
+                    <div class="margin-top">
+                        <label>Cliente:</label>
+                        <select name="cliente">
+                            <c:forEach var="cliente" items="${clientes}">
+                                <option value="${cliente.id}">${cliente.nome}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="margin-top">
+                        <label for="dataEntrega">Previsão de entrega:</label>
                     </div>
                     <div>
-                        <input
-                                type="text"
-                                name="placa"
-                                placeholder="Placa do veículo"
-                                required
-                        />
-
+                        <input type="date" name="dataEntrega">
                     </div>
                     <div class="button">
                         <button type="submit">Cadastrar</button>

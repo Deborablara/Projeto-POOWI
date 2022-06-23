@@ -190,8 +190,9 @@ main section.content .selecionar{
   font-size: 1.5em;
   text-align:center;
 }
+
 .popup .conteudo select{
-  padding: 0.5rem;
+
 }
 .popup .conteudo form{
   width: 100%;
