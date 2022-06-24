@@ -50,7 +50,9 @@
 
         <div class="divbutton">
             <h2>Pedidos</h2>
-            <a onclick="openPopup()" style="text-align: center">Novo Pedido</a>
+            <c:if test="${usuario_logado.permissao.id == 1}">
+                <a onclick="openPopup()" style="text-align: center">Novo Pedido</a>
+            </c:if>
         </div>
 
         <div class="selecionar">

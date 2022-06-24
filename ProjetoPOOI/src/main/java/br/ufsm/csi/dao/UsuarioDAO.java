@@ -39,6 +39,7 @@ public class UsuarioDAO {
                 p.setId(this.rs.getInt("id_permissao"));
                 p.setNome(this.rs.getString("nome_permissao"));
                 us.setPermissao(p);
+                System.out.println(us.getPermissao().getId());
 
 
                 return us;

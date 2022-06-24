@@ -32,7 +32,7 @@ public class VeiculoController extends HttpServlet {
                 retorno = dao.Cadastrar(v);
                 req.setAttribute("retorno", retorno);
                 req.setAttribute("veiculos", dao.getVeiculos());
-                uri = "veiculo.jsp";
+                uri = "WEB-INF/veiculo.jsp";
 
                 break;
             case "ver":
@@ -40,7 +40,7 @@ public class VeiculoController extends HttpServlet {
                 Veiculo veiculo =  dao.GetVeiculo(buscarplaca);
                 req.setAttribute("veiculo", veiculo);
 
-                uri = "VerVeiculo.jsp";
+                uri = "WEB-INF/VerVeiculo.jsp";
                 break;
             case "editar":
                 int id = Integer.parseInt(req.getParameter("id"));
@@ -51,11 +51,11 @@ public class VeiculoController extends HttpServlet {
 
                 if(retorno.equals("OK")){
                     req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
-                    uri = "veiculo.jsp";
+                    uri = "WEB-INF/veiculo.jsp";
                     break;
                 }else{
                     req.setAttribute("retorno", retorno);
-                    uri = "VerVeiculo.jsp";
+                    uri = "WEB-INF/VerVeiculo.jsp";
                     break;
                 }
             case "excluir":
@@ -63,12 +63,12 @@ public class VeiculoController extends HttpServlet {
                 retorno = dao.Excluir(idVeiculo);
                 if(retorno.equals("OK")){
                     req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
-                    uri="veiculo.jsp";
+                    uri="WEB-INF/veiculo.jsp";
                 }
                 break;
             case "cancelar":
                 req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
-                uri="veiculo.jsp";
+                uri="WEB-INF/veiculo.jsp";
                 break;
             default:
                 break;

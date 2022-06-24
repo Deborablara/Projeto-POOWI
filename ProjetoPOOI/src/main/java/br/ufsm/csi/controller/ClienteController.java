@@ -30,7 +30,7 @@ public class ClienteController extends HttpServlet {
                 req.setAttribute("retorno", retorno);
                 req.setAttribute("clientes", dao.getClientes());
 
-                uri = "cliente.jsp";
+                uri = "WEB-INF/cliente.jsp";
 
                 break;
 
@@ -41,7 +41,7 @@ public class ClienteController extends HttpServlet {
                 Cliente cliente = dao.GetCliente(idcliente);
                 req.setAttribute("cliente", cliente);
 
-                uri = "Vercliente.jsp";
+                uri = "WEB-INF/Vercliente.jsp";
                 break;
 
 
@@ -54,11 +54,11 @@ public class ClienteController extends HttpServlet {
 
                 if(retorno.equals("OK")){
                     req.setAttribute("clientes", dao.getClientes());
-                    uri = "cliente.jsp";
+                    uri = "WEB-INF/cliente.jsp";
 
                 }else{
                     req.setAttribute("retorno", retorno);
-                    uri = "VerVeiculo.jsp";
+                    uri = "WEB-INF/VerVeiculo.jsp";
 
                 }
                 break;
@@ -66,7 +66,7 @@ public class ClienteController extends HttpServlet {
 
             case "cancelar":
                 req.setAttribute("clientes", dao.getClientes());
-                uri = "cliente.jsp";
+                uri = "WEB-INF/cliente.jsp";
                 break;
 
 
@@ -75,12 +75,12 @@ public class ClienteController extends HttpServlet {
                 retorno = dao.Excluir(idExcluir);
                 if(retorno.equals("OK")){
                     req.setAttribute("clientes", dao.getClientes());
-                    uri="cliente.jsp";
+                    uri="WEB-INF/cliente.jsp";
                 }
                 break;
 
             default:
-                uri="cliente.jsp";
+                uri="WEB-INF/cliente.jsp";
                 break;
         }
 

@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
         if( u != null){
             HttpSession sessao = req.getSession();
             sessao.setAttribute("usuario_logado", u);
-             rd = req.getRequestDispatcher("dashboard.jsp");
+             rd = req.getRequestDispatcher("WEB-INF/dashboard.jsp");
         }else{
             rd = req.getRequestDispatcher("index.jsp");
         }

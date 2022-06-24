@@ -30,14 +30,14 @@ public class ProdutoController extends HttpServlet {
                 req.setAttribute("retorno", retorno);
                 req.setAttribute("produtos", dao.getProdutos());
 
-                uri = "produto.jsp";
+                uri = "WEB-INF/produto.jsp";
 
                 break;
 
             case "listar":
                 ArrayList<Produto> produtos = dao.getProdutos();
                 req.setAttribute("produtos", produtos);
-                uri = ("listarProdutos.jsp");
+                uri = ("WEB-INF/listarProdutos.jsp");
 
                 break;
 
@@ -45,7 +45,7 @@ public class ProdutoController extends HttpServlet {
                 int id = Integer.parseInt(req.getParameter("id"));
                 Produto p = dao.getProduto(id);
                 req.setAttribute("produto", p);
-                uri = ("VerProduto.jsp");
+                uri = ("WEB-INF/VerProduto.jsp");
                 break;
 
             case "editar":
@@ -56,16 +56,16 @@ public class ProdutoController extends HttpServlet {
 
                 if(retorno.equals("OK")){
                     req.setAttribute("produtos", dao.getProdutos());
-                    uri = "produto.jsp";
+                    uri = "WEB-INF/produto.jsp";
                 }else{
                     req.setAttribute("retorno", retorno);
-                    uri = "VerVeiculo.jsp";
+                    uri = "WEB-INF/VerVeiculo.jsp";
                 }
                 break;
 
             case "cancelar":
                 req.setAttribute("produtos", dao.getProdutos());
-                uri = "produto.jsp";
+                uri = "WEB-INF/produto.jsp";
                 break;
 
             case "excluir":
@@ -73,13 +73,13 @@ public class ProdutoController extends HttpServlet {
                 dao.Excluir(idEditar);
 
                 req.setAttribute("produtos", dao.getProdutos());
-                uri = "produto.jsp";
+                uri = "WEB-INF/produto.jsp";
 
                 break;
 
 
             default:
-                uri = "produto.jsp";
+                uri = "WEB-INF/produto.jsp";
 
                 break;
 

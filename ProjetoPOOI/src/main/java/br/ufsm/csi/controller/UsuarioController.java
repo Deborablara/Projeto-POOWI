@@ -33,7 +33,7 @@ public class UsuarioController extends HttpServlet {
                 req.setAttribute("retorno", retorno);
                 req.setAttribute("usuarios", dao.getUsuarios());
 
-                uri = "funcionario.jsp";
+                uri = "WEB-INF/funcionario.jsp";
 
                 break;
 
@@ -42,7 +42,7 @@ public class UsuarioController extends HttpServlet {
                 retorno = dao.Deletar(id);
                 if(retorno.equals("OK")){
                     req.setAttribute("usuarios", dao.getUsuarios());
-                    uri = "funcionario.jsp";
+                    uri = "WEB-INF/funcionario.jsp";
                 }
                 break;
             case "ver":
@@ -50,7 +50,7 @@ public class UsuarioController extends HttpServlet {
                 Usuario usuario = dao.GetUsuarioPermissao(idUs);
                 req.setAttribute("usuario", usuario);
 
-                uri = "VerUsuario.jsp";
+                uri = "WEB-INF/VerUsuario.jsp";
 
                 break;
             default:

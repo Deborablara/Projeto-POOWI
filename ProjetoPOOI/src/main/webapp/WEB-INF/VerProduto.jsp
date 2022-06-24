@@ -59,13 +59,15 @@
                             name="id"
                             value="${produto.id}"
                     />
+                </div>
+                <div class="botoes">
+                    <button type="submit" class="editar">Editar</button>
+                    <a href="produto?opcao=excluir&&id=${produto.id}" class="excluir">Excluir</a>
+                    <a href="produto?opcao=cancelar" class="cancelar">Cancelar</a>
+                </div>
 
             </form>
-            <div class="botoes">
-                <button type="submit" class="editar">Editar</button>
-                <a href="produto?opcao=excluir&&id=${produto.id}" class="excluir">Excluir</a>
-                <a href="produto?opcao=cancelar" class="cancelar">Cancelar</a>
-            </div>
+
         </div>
 
 

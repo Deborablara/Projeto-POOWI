@@ -52,12 +52,7 @@ public class PedidoController extends HttpServlet {
                 Pedido pedido = new Pedido(p, c,Dataformatada, quantidade, status, v);
                 retorno = dao.Cadastrar(pedido);
 
-
-
-
-
-
-                uri = "Pedido.jsp";
+                uri = "WEB-INF/Pedido.jsp";
 
                 break;
 

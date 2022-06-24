@@ -79,12 +79,13 @@
                         <option value="1">Administrador</option>
                     </select>
                 </div>
+                <div class="botoes">
+                    <button type="submit" class="editar">Editar</button>
+                    <a href="usuario?opcao=excluir&&id=${usuario.id}&&permissao=${usuario.permissao.id}" class="excluir">Excluir</a>
+                    <a href="usuario?opcao=cancelar" class="cancelar">Cancelar</a>
+                </div>
             </form>
-            <div class="botoes">
-                <button type="submit" class="editar">Editar</button>
-                <a href="usuario?opcao=excluir&&id=${usuario.id}&&permissao=${usuario.permissao.id}" class="excluir">Excluir</a>
-                <a href="usuario?opcao=cancelar" class="cancelar">Cancelar</a>
-            </div>
+
         </div>
     </section>
 </main>
