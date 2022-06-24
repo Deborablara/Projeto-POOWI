@@ -95,18 +95,7 @@
                 <th>Placa</th>
                 <th>Status</th>
             </tr>
-
-
-            <tr>
-                <td>1</td>
-                <td>VPP</td>
-                <td>15.5 t</td>
-                <td>Quintia</td>
-                <td>22/06/2022</td>
-                <td>30/06/2022</td>
-                <td>kmh2345</td>
-                <td>Pendente</td>
-            </tr>
+            
 
             <c:forEach var="pedidos" items="${pedidos}">
 

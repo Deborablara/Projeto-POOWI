@@ -24,10 +24,12 @@
             <p>MENU</p>
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <li><a href="dashboard?opcao=clientes">Clientes</a></li>
-                <li><a href="dashboard?opcao=veiculos" >Veículos</a></li>
-                <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                <li><a href="dashboard?opcao=produtos"  class="active">Produtos</a></li>
+                <c:if test="${usuario_logado.permissao.id == 1}">
+                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
+                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
+                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
+                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
+                </c:if>
             </ul>
         </div>
     </div >
