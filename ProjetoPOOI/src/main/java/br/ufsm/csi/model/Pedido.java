@@ -16,6 +16,16 @@ public class Pedido {
 
     }
 
+    public Pedido(Produto produto, Cliente cliente, Date dataEntrega, float quantidade, Status status, Veiculo veiculo){
+        this.produto = produto;
+        this.cliente = cliente;
+        this.dataEntrega = dataEntrega;
+        this.quantidade = quantidade;
+        this.status = status;
+        this.veiculo = veiculo;
+
+    }
+
     public int getId() {
         return id;
     }

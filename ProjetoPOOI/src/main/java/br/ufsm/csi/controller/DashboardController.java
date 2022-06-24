@@ -20,6 +20,9 @@ public class DashboardController extends HttpServlet {
         switch (opcao){
             case "pedidos":
                 req.setAttribute("pedidos", new PedidoDAO().getPedidos());
+                req.setAttribute("produtos", new ProdutoDAO().getProdutos());
+                req.setAttribute("clientes", new ClienteDAO().getClientes());
+                req.setAttribute("veiculos", new VeiculoDAO().getVeiculos());
                 uri = "Pedido.jsp";
 
                 break;

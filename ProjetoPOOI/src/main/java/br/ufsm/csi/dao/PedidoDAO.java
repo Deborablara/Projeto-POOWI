@@ -3,6 +3,7 @@ package br.ufsm.csi.dao;
 import br.ufsm.csi.model.*;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class PedidoDAO {
@@ -14,7 +15,7 @@ public class PedidoDAO {
 
     public String Cadastrar(Pedido p){
         try(Connection connection = new ConectaDB().getConexao()) {
-            this.sql = "insert into pedido(quantidade, data_pedido, data_entrega, id_cliente, id_produto, id_status, placa) values (?, current_timestamp, ?, ?, ?, ?, ?)";
+            this.sql = "insert into pedido(quantidade, data_pedido, data_entrega, id_cliente, id_produto, id_status, id_veiculo) values (?, current_timestamp, ?, ?, ?, ?, ?)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, PreparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setFloat(1, p.getQuantidade());
@@ -22,7 +23,7 @@ public class PedidoDAO {
             this.preparedStatement.setInt(3, p.getCliente().getId());
             this.preparedStatement.setInt(4, p.getProduto().getId());
             this.preparedStatement.setInt(5, p.getStatus().getId());
-            this.preparedStatement.setString(6, p.getVeiculo().getPlaca());
+            this.preparedStatement.setInt(6, p.getVeiculo().getId());
             this.preparedStatement.execute();
             this.rs = this.preparedStatement.getGeneratedKeys();
             this.rs.next();
@@ -44,8 +45,9 @@ public class PedidoDAO {
     public ArrayList<Pedido> getPedidos(){
         ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "select * from pedido, cliente, produto, veiculo, status where cliente.id_cliente = pedido.id_cliente and produto.id_produto = pedido.id_produto" +
-                    "and veiculo.id_veiculo = pedido.id_veiculo and status.id_status = pedido.id_status";
+            this.sql = "select * from pedido, cliente, produto, veiculo, status " +
+                    "where cliente.id_cliente = pedido.id_cliente and produto.id_produto = pedido.id_produto and veiculo.id_veiculo = pedido.id_veiculo " +
+                    "and status.id_status = pedido.id_status";
 
             this.stmt = connection.createStatement();
             this.rs = stmt.executeQuery(this.sql);
@@ -55,6 +57,8 @@ public class PedidoDAO {
 
                 pedido.setId(this.rs.getInt("id_pedido"));
                 pedido.setQuantidade(this.rs.getFloat("quantidade"));
+
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 pedido.setDataPedido(this.rs.getDate("data_pedido"));
                 pedido.setDataEntrega(this.rs.getDate("data_entrega"));
 

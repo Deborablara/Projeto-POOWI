@@ -1,5 +1,8 @@
 package br.ufsm.csi.controller;
 
+import br.ufsm.csi.dao.PedidoDAO;
+import br.ufsm.csi.model.*;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,21 +18,42 @@ public class PedidoController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String opcao = req.getParameter("opcao");
+        PedidoDAO dao = new PedidoDAO();
+        String retorno;
         String uri = " ";
 
         switch (opcao){
             case "cadastrar":
                 int  produto = Integer.parseInt(req.getParameter("produto"));
+                Produto p = new Produto(produto);
+
                 int  cliente = Integer.parseInt(req.getParameter("cliente"));
-                Date data = java.sql.Date.valueOf(req.getParameter("dataEntrega"));
+                Cliente c = new Cliente(cliente);
+
+                int veiculo = Integer.parseInt(req.getParameter("veiculo"));
+                Veiculo v = new Veiculo(veiculo);
+
+                Date dataEntrega = java.sql.Date.valueOf(req.getParameter("dataEntrega"));
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                String Dataformatada = format.format(data);
+                java.sql.Date Dataformatada = java.sql.Date.valueOf(format.format(dataEntrega));
                 Float quantidade = Float.parseFloat(req.getParameter("quantidade"));
+
+
+                int id_status = Integer.parseInt(req.getParameter("status"));
+                Status status = new Status(id_status);
 
                 System.out.println(produto);
                 System.out.println(cliente);
                 System.out.println(Dataformatada);
                 System.out.println(quantidade);
+                System.out.println(status);
+                System.out.println(veiculo);
+
+                Pedido pedido = new Pedido(p, c,Dataformatada, quantidade, status, v);
+                retorno = dao.Cadastrar(pedido);
+
+
+
 
 
 

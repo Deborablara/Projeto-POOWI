@@ -6,6 +6,9 @@ public class Veiculo {
 
     public Veiculo() {
     }
+    public Veiculo(int id) {
+        this.id= id;
+    }
     public Veiculo(String placa) {
         this.placa = placa;
     }

@@ -5,6 +5,12 @@ public class Status {
     private int id;
     private String nome;
 
+    public Status(){
+
+    }
+    public Status(int id){
+        this.id = id;
+    }
 
     public int getId() {
         return id;

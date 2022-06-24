@@ -11,6 +11,9 @@ public class Cliente {
     public Cliente(String nome){
         this.nome = nome;
     }
+    public Cliente(int id){
+        this.id = id;
+    }
     public Cliente(int id, String nome){
         this.id = id;
         this.nome = nome;

@@ -150,14 +150,24 @@
                         </select>
                     </div>
                     <div class="margin-top">
+                        <label>Veículo:</label>
+                        <select name="veiculo">
+                            <c:forEach var="veiculo" items="${veiculos}">
+                                <option value="${veiculo.id}">${veiculo.placa}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="margin-top">
                         <label for="dataEntrega">Previsão de entrega:</label>
                     </div>
                     <div>
                         <input type="date" name="dataEntrega">
                     </div>
+                    <input type="hidden" name="status" value="1">
                     <div class="button">
                         <button type="submit">Cadastrar</button>
                     </div>
+
                 </form>
             </div>
         </div>

@@ -32,7 +32,7 @@
         </div>
     </div >
     <div id="footer">
-        <img src="./assets/door.png" alt="ícone de usuário branco">
+        <img src="resources/assets/door.png" alt="ícone de usuário branco">
         <a href="dashboard?opcao=logout"><p>Sair</p></a>
     </div>
     </div>
