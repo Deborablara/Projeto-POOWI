@@ -20,7 +20,7 @@ create table cliente(
 );
 
 create table veiculo(
-	id_veiculo serial UNIQUE
+	id_veiculo serial UNIQUE,
 	placa varchar(20) PRIMARY KEY 
 );
 
@@ -45,28 +45,28 @@ create table pedido (
 	data_entrega date NOT NULL,
 	id_status int NOT NULL,
 	id_cliente int NOT NULL,
-	id_usuario int NOT NULL,
 	id_produto int NOT NULL,
-	placa varchar(20) NOT NULL,
+	Id_veiculo int NOT NULL,
 	FOREIGN KEY (id_status) REFERENCES status (id_status),
 	FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente),
-	FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
 	FOREIGN KEY (id_produto) REFERENCES produto (id_produto),
-	FOREIGN KEY (placa) REFERENCES veiculo (placa)
+	FOREIGN KEY (id_veiculo) REFERENCES veiculo (id_veiculo)
 	
 	
 	
 );
 
+
 insert into usuario(nome, password) values ('admin', '1234')
-insert into permissao(nome_permissao) values ('Admin')
+
+insert into permissao(nome_permissao) values ('Colaborador')
 insert into usuario_permissao(id_usuario, id_permissao) values (1, 1)
+insert into status(nome_status) values ('Pendente');
+insert into status(nome_status) values ('Em produção');
 
+insert into status(nome_status) values ('Produzido');
 
-select * from veiculo;
+insert into status(nome_status) values ('Carregado');
+insert into status(nome_status) values ('Entregue');
 
-
-
-
-
-
+select * from status
