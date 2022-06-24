@@ -24,12 +24,20 @@ public class PedidoController extends HttpServlet {
                 Date data = java.sql.Date.valueOf(req.getParameter("dataEntrega"));
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 String Dataformatada = format.format(data);
+                Float quantidade = Float.parseFloat(req.getParameter("quantidade"));
+
+                System.out.println(produto);
+                System.out.println(cliente);
+                System.out.println(Dataformatada);
+                System.out.println(quantidade);
 
 
 
                 uri = "Pedido.jsp";
 
                 break;
+
+
         }
 
         RequestDispatcher rd = req.getRequestDispatcher(uri);

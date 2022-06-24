@@ -82,6 +82,7 @@
         </div>
 
         <table>
+
             <tr>
                 <th>Nº Pedido</th>
                 <th>Produto</th>
@@ -89,36 +90,36 @@
                 <th>Cliente</th>
                 <th>Data do pedido</th>
                 <th>Data de entrega</th>
+                <th>Placa</th>
                 <th>Status</th>
             </tr>
 
+
             <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
+                <td>1</td>
+                <td>VPP</td>
+                <td>15.5 t</td>
+                <td>Quintia</td>
+                <td>22/06/2022</td>
+                <td>30/06/2022</td>
+                <td>kmh2345</td>
                 <td>Pendente</td>
             </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>Pendente</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>teste</td>
-                <td>Pendente</td>
-            </tr>
+
+            <c:forEach var="pedidos" items="${pedidos}">
+
+                <tr>
+                    <td>${pedidos.id}</td>
+                    <td>${pedidos.produto.nome}</td>
+                    <td>${pedidos.quantidade}</td>
+                    <td>${pedidos.cliente.nome}</td>
+                    <td>${pedidos.dataPedido}</td>
+                    <td>${pedidos.dataEntrega}</td>
+                    <td>${pedidos.veiculo.placa}</td>
+                    <td>${pedidos.status.nome}</td>
+                </tr>
+
+            </c:forEach>
         </table>
 
 
@@ -138,7 +139,7 @@
                     </div>
                     <div class="margin-top">
                         <label for="quantidade">Quantidade (t):</label>
-                        <input type="number" name="quantidade" step="00.0">
+                        <input type="number" name="quantidade" step=0.01>
                     </div>
                     <div class="margin-top">
                         <label>Cliente:</label>

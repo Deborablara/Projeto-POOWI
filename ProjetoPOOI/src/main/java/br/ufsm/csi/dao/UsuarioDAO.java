@@ -90,7 +90,7 @@ public class UsuarioDAO {
                     " where usuario.id_usuario = usuario_permissao.id_usuario " +
                     "and permissao.id_permissao = usuario_permissao.id_permissao;";
             this.stmt = connection.createStatement();
-            this.rs = stmt.executeQuery(sql);
+            this.rs = stmt.executeQuery(this.sql);
 
             while (this.rs.next()) {
                 Usuario usuario = new Usuario();

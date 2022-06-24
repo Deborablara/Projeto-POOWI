@@ -30,8 +30,8 @@
             <p>MENU</p>
             <ul>
                 <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <c:if test="${usuario_logado.permissao.nomePermissao == 'admin'}">
-                    <li><a href="dashboard?opcao=clientes">${usuario_logado.permissao.id}</a></li>
+                <c:if test="${usuario_logado.permissao.id == 1}">
+                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
                     <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
                     <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
                     <li><a href="dashboard?opcao=produtos">Produtos</a></li>

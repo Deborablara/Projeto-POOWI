@@ -1,9 +1,6 @@
 package br.ufsm.csi.controller;
 
-import br.ufsm.csi.dao.ClienteDAO;
-import br.ufsm.csi.dao.ProdutoDAO;
-import br.ufsm.csi.dao.UsuarioDAO;
-import br.ufsm.csi.dao.VeiculoDAO;
+import br.ufsm.csi.dao.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,8 +19,7 @@ public class DashboardController extends HttpServlet {
 
         switch (opcao){
             case "pedidos":
-                req.setAttribute("produtos", new ProdutoDAO().getProdutos());
-                req.setAttribute("clientes", new ClienteDAO().getClientes());
+                req.setAttribute("pedidos", new PedidoDAO().getPedidos());
                 uri = "Pedido.jsp";
 
                 break;
