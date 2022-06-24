@@ -1,6 +1,7 @@
 package br.ufsm.csi.controller;
 
 import br.ufsm.csi.dao.PedidoDAO;
+import br.ufsm.csi.dao.VeiculoDAO;
 import br.ufsm.csi.model.*;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 @WebServlet("pedido")
 public class PedidoController extends HttpServlet {
@@ -33,9 +34,10 @@ public class PedidoController extends HttpServlet {
                 int veiculo = Integer.parseInt(req.getParameter("veiculo"));
                 Veiculo v = new Veiculo(veiculo);
 
-                Date dataEntrega = java.sql.Date.valueOf(req.getParameter("dataEntrega"));
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                java.sql.Date Dataformatada = java.sql.Date.valueOf(format.format(dataEntrega));
+                Date dataEntrega = Date.valueOf(req.getParameter("dataEntrega"));
+//                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+//                java.sql.Date Dataformatada = java.sql.Date.valueOf(format.format(dataEntrega));
+
                 Float quantidade = Float.parseFloat(req.getParameter("quantidade"));
 
 
@@ -44,13 +46,14 @@ public class PedidoController extends HttpServlet {
 
                 System.out.println(produto);
                 System.out.println(cliente);
-                System.out.println(Dataformatada);
+                System.out.println(dataEntrega);
                 System.out.println(quantidade);
                 System.out.println(status);
                 System.out.println(veiculo);
 
-                Pedido pedido = new Pedido(p, c,Dataformatada, quantidade, status, v);
+                Pedido pedido = new Pedido(p, c,dataEntrega, quantidade, status, v);
                 retorno = dao.Cadastrar(pedido);
+                req.setAttribute("pedidos", new PedidoDAO().getPedidos());
 
                 uri = "WEB-INF/Pedido.jsp";
 
