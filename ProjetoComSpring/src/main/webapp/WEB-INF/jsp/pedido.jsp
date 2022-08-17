@@ -14,31 +14,12 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/CSS/style.css">
+    <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css">
     <title>Pedidos</title>
 </head>
 <body>
 <section id="navbar">
-    <div>
-        <h1><span>Logo</span>Empresa</h1>
-        <div id="menu">
-            <p>MENU</p>
-            <ul>
-                <li><a href="dashboard?opcao=pedidos" class="active">Pedidos</a></li>
-                <c:if test="${usuario_logado.permissao.id == 1}">
-                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
-                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
-                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
-                </c:if>
-            </ul>
-        </div>
-    </div >
-    <div id="footer">
-        <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href="dashboard?opcao=logout"><p>Sair</p></a>
-    </div>
-    </div>
+    <jsp:include page="../components/menu.jsp"></jsp:include>
 </section>
 <main>
     <section class="content">
@@ -100,19 +81,21 @@
 
 
             <c:forEach var="pedidos" items="${pedidos}">
-
-                <tr>
-                    <td>${pedidos.id}</td>
-                    <td>${pedidos.produto.nome}</td>
-                    <td>${pedidos.quantidade}</td>
-                    <td>${pedidos.cliente.nome}</td>
-                    <td>${pedidos.dataPedido}</td>
-                    <td>${pedidos.dataEntrega}</td>
-                    <td>${pedidos.veiculo.placa}</td>
-                    <td>${pedidos.status.nome}</td>
-                </tr>
-
+                <c:if test="${pedidos.isAtivo}">
+                    <tr>
+                        <td>${pedidos.id}</td>
+                        <td>${pedidos.produto.nome}</td>
+                        <td>${pedidos.quantidade}t</td>
+                        <td>${pedidos.cliente.nome}</td>
+                        <td>${pedidos.dataPedido}</td>
+                        <td>${pedidos.dataEntrega}</td>
+                        <td>${pedidos.veiculo.placa}</td>
+                        <td>${pedidos.status.nome}</td>
+                        <td><a href="/app/pedido/verPedidos?id=${pedidos.id}"><img src="<c:url value="/assets/edit.png"/>"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                    </tr>
+                </c:if>
             </c:forEach>
+
         </table>
 
 
@@ -120,12 +103,14 @@
             <div class="conteudo">
                 <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
                 <h3>Novo pedido</h3>
-                <form action="pedido?opcao=cadastrar" method="post">
+                <form action="/app/pedido/cadastrar" method="post">
                     <div>
                         <label>Produto:</label>
                         <select name="produto">
                             <c:forEach var="produto" items="${produtos}">
-                                <option value="${produto.id}">${produto.nome}</option>
+                                <c:if test="${produto.isAtivo}">
+                                    <option value="${produto.id}">${produto.nome}</option>
+                                </c:if>
                             </c:forEach>
 
                         </select>
@@ -138,15 +123,20 @@
                         <label>Cliente:</label>
                         <select name="cliente">
                             <c:forEach var="cliente" items="${clientes}">
-                                <option value="${cliente.id}">${cliente.nome}</option>
+                                <c:if test="${cliente.isAtivo}">
+                                    <option value="${cliente.id}">${cliente.nome}</option>
+                                </c:if>
                             </c:forEach>
                         </select>
                     </div>
                     <div class="margin-top">
                         <label>Veículo:</label>
                         <select name="veiculo">
+
                             <c:forEach var="veiculo" items="${veiculos}">
-                                <option value="${veiculo.id}">${veiculo.placa}</option>
+                                <c:if test="${veiculo.isAtivo}">
+                                    <option value="${veiculo.id}">${veiculo.placa}</option>
+                                </c:if>
                             </c:forEach>
                         </select>
                     </div>

@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -12,7 +13,7 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/CSS/login.css">
+    <link href="<c:url value="/css/login.css"/>" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 
@@ -22,10 +23,10 @@
     <form action="login" method="post">
         <div class="flex-input-100">
             <div>
-                <label for="usuario"> Usuário </label>
+                <label for="nome"> Usuário </label>
             </div>
             <div>
-                <input type="text" name="usuario"  />
+                <input type="text" name="nome" id="nome" />
             </div>
         </div>
         <div class="flex-input-100">
@@ -33,7 +34,7 @@
                 <label for="senha"> Senha </label>
             </div>
             <div>
-                <input type="password" name="senha"  />
+                <input type="password" name="senha" id="senha" />
             </div>
         </div>
 

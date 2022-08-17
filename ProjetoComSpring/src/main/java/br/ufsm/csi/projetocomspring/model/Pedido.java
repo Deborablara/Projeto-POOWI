@@ -12,6 +12,8 @@ public class Pedido {
     private Status status;
     private Veiculo veiculo;
 
+    private Boolean isAtivo;
+
     public Pedido(){
 
     }
@@ -23,6 +25,16 @@ public class Pedido {
         this.quantidade = quantidade;
         this.status = status;
         this.veiculo = veiculo;
+
+    }
+    public Pedido(Produto produto, Cliente cliente, Date dataEntrega, float quantidade, Status status, Veiculo veiculo, Date dataPedido){
+        this.produto = produto;
+        this.cliente = cliente;
+        this.dataEntrega = dataEntrega;
+        this.quantidade = quantidade;
+        this.status = status;
+        this.veiculo = veiculo;
+        this.dataPedido = dataPedido;
 
     }
 
@@ -56,6 +68,14 @@ public class Pedido {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public void setIsAtivo(Boolean isAtivo) {
+        this.isAtivo = isAtivo;
+    }
+
+    public Boolean getIsAtivo() {
+        return isAtivo;
     }
 
     public Date getDataPedido() {

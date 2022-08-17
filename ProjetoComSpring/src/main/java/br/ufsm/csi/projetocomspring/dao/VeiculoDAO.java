@@ -24,6 +24,7 @@ public class VeiculoDAO {
                 Veiculo v = new Veiculo();
                 v.setId(this.rs.getInt("id_veiculo"));
                 v.setPlaca(this.rs.getString("placa"));
+                v.setIsAtivo(this.rs.getBoolean("isativo"));
                 veiculos.add(v);
             }
         }catch (SQLException e){
@@ -34,7 +35,7 @@ public class VeiculoDAO {
 
     public String Cadastrar(Veiculo veiculo){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "INSERT INTO veiculo(placa) VALUES (?)";
+            this.sql = "INSERT INTO veiculo(placa, isativo) VALUES (?, true)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, PreparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setString(1, veiculo.getPlaca());
@@ -66,6 +67,7 @@ public class VeiculoDAO {
             while(this.rs.next()){
                 v.setId(this.rs.getInt("id_veiculo"));
                 v.setPlaca(this.rs.getString("placa"));
+                v.setIsAtivo(this.rs.getBoolean("isativo"));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -91,7 +93,7 @@ public class VeiculoDAO {
 
     public String Excluir(int  id){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "delete from veiculo where id_veiculo=?";
+            this.sql = "update veiculo set isativo=false where id_veiculo=?";
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setInt(1, id);
             this.preparedStatement.executeUpdate();

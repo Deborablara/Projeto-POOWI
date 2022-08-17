@@ -34,6 +34,7 @@ public class UsuarioDAO {
                 us.setId(this.rs.getInt("id_usuario"));
                 us.setNome(this.rs.getString("nome"));
                 us.setPassword(this.rs.getString("password"));
+                us.setIsAtivo(this.rs.getBoolean("isativo"));
 
                 Permissao p = new Permissao();
                 p.setId(this.rs.getInt("id_permissao"));
@@ -69,6 +70,7 @@ public class UsuarioDAO {
                 us.setId(this.rs.getInt("id_usuario"));
                 us.setNome(this.rs.getString("nome"));
                 us.setPassword(this.rs.getString("password"));
+                us.setIsAtivo(this.rs.getBoolean("isativo"));
 
                 Permissao p = new Permissao();
                 p.setId(this.rs.getInt("id_permissao"));
@@ -99,6 +101,7 @@ public class UsuarioDAO {
                 usuario.setId(this.rs.getInt("id_usuario"));
                 usuario.setNome(this.rs.getString("nome"));
                 usuario.setPassword(this.rs.getString("password"));
+                usuario.setIsAtivo(this.rs.getBoolean("isativo"));
 
                 Permissao permissao = new Permissao();
                 permissao.setId(this.rs.getInt("id_permissao"));
@@ -121,7 +124,7 @@ public class UsuarioDAO {
         try (Connection connection = new ConectaDB().getConexao()) {
             connection.setAutoCommit(false);
 
-            this.sql = "insert into usuario(nome, password) VALUES (?, ?)";
+            this.sql = "insert into usuario(nome, password, isativo) VALUES (?, ?, true)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, PreparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setString(1, u.getNome());
@@ -188,14 +191,10 @@ public class UsuarioDAO {
 
     public String Deletar(int id){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "BEGIN;" +
-                    "DELETE FROM usuario_permissao WHERE id_usuario=?;" +
-                    "DELETE FROM usuario WHERE id_usuario=?;" +
-                    "COMMIT;";
+            this.sql = "update usuario set isativo=false where id_usuario=?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             preparedStatement.setInt(1, id);
-            preparedStatement.setInt(2, id);
             this.preparedStatement.executeUpdate();
             this.status = "OK";
         }catch (SQLException e){

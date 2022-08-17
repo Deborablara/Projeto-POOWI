@@ -1,3 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: debora
+  Date: 28/05/2022
+  Time: 14:21
+  To change this template use File | Settings | File Templates.
+--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page isELIgnored="false" %>
@@ -13,75 +21,59 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/CSS/style.css">
-    <title>Veículos</title>
+    <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css">
+    <title>Produtos</title>
 </head>
 <body>
 <section id="navbar">
-    <div>
-        <h1><span>Logo</span>Empresa</h1>
-        <div id="menu">
-            <p>MENU</p>
-            <ul>
-                <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <c:if test="${usuario_logado.permissao.id == 1}">
-                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
-                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
-                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
-                </c:if>
-            </ul>
-        </div>
-    </div >
-    <div id="footer">
-        <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href="dashboard?opcao=logout"><p>Sair</p></a>
-    </div>
-    </div>
+    <jsp:include page="../components/menu.jsp"></jsp:include>
 </section>
 <main>
     <section class="content">
 
         <c:if test="${retorno == 'OK'}">
-            <p style="color:green; text-align: right; margin-bottom: 15px;">Veículo cadastrado com sucesso!</p>
+            <p style="color:green; text-align: right; margin-bottom: 15px;">Produto Cadastrado com sucesso!</p>
         </c:if>
         <c:if test="${retorno == 'erro'}">
             <p style="color:red; text-align: right; margin-bottom: 15px;">Falha ao executar esta ação!</p>
         </c:if>
 
         <div class="divbutton">
-            <h2>Veículos</h2>
-            <a onclick="openPopup()" >Cadastrar novo veículo</a>
+            <h2>Produtos</h2>
+            <a onclick="openPopup()" >Cadastrar novo produto</a>
         </div>
 
         <table>
             <tr>
                 <th>Id</th>
-                <th>Placa</th>
+                <th>Nome</th>
+                <th>Opção</th>
             </tr>
-            <c:forEach var="veiculos" items="${veiculos}">
-                <tr>
-                    <td>${veiculos.id}</td>
-                    <td>${veiculos.placa}</td>
-                    <td style="text-align: center"><a href="veiculo?opcao=ver&&placa=${veiculos.placa}"><img src="./assets/edit.png"  class="icon-edit" alt="lápis preto">Editar </a></td>
-                </tr>
+            <c:forEach var="produtos" items="${produtos}">
+                <c:if test="${produtos.isAtivo}">
+                    <tr>
+                        <td>${produtos.id}</td>
+                        <td>${produtos.nome}</td>
+                        <td><a href="/app/produto/verProduto?id=${produtos.id}"><img src="<c:url value="/assets/edit.png"/>"  class="icon-edit" alt="lápis preto">Editar </a></td>
+                    </tr>
+                </c:if>
             </c:forEach>
         </table>
 
 
         <div class="popup">
             <div class="conteudo">
-                <img src="./assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
+                <img src="/assets/x.png" alt="ícone de fechar" onclick="closePopup()" />
                 <h3>Novo produto</h3>
-                <form action="veiculo?opcao=cadastrar" method="post">
+                <form action="/app/produto/cadastrar" method="post">
                     <div>
-                        <label for="placa">Placa</label>
+                        <label for="nome">Descrição</label>
                     </div>
                     <div>
                         <input
                                 type="text"
-                                name="placa"
-                                placeholder="Placa do veículo"
+                                name="nome"
+                                placeholder="Nome do produto"
                                 required
                         />
 
@@ -92,7 +84,6 @@
                 </form>
             </div>
         </div>
-
     </section>
 </main>
 <script src="./script.js"></script>

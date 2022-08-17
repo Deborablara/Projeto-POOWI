@@ -6,14 +6,12 @@ import br.ufsm.csi.projetocomspring.model.Usuario;
 import javax.servlet.http.HttpServlet;
 
 public class UsuarioService {
-    public Usuario Autenticado(String usuario, String senha){
+    public Usuario Autenticado(String nome, String senha){
 
-        Usuario u = new UsuarioDAO().getUsuario(usuario, senha);
+        Usuario u = new UsuarioDAO().getUsuario(nome, senha);
 
         try{
-            if(u.getNome().equals(usuario) && u.getPassword().equals(senha)){
-                System.out.println(u.getNome());
-                System.out.println(u.getPermissao().getNomePermissao());
+            if(u.getNome().equals(nome) && u.getPassword().equals(senha)){
                 return u;
             }
         }catch (Exception e){

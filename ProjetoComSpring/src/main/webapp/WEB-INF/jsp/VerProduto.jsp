@@ -13,31 +13,12 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/CSS/style.css">
+    <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css">
     <title>Produto</title>
 </head>
 <body>
 <section id="navbar">
-    <div>
-        <h1><span>Logo</span>Empresa</h1>
-        <div id="menu">
-            <p>MENU</p>
-            <ul>
-                <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <c:if test="${usuario_logado.permissao.id == 1}">
-                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
-                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
-                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
-                </c:if>
-            </ul>
-        </div>
-    </div >
-    <div id="footer">
-        <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href="dashboard?opcao=logout"><p>Sair</p></a>
-    </div>
-    </div>
+    <jsp:include page="../components/menu.jsp"></jsp:include>
 </section>
 <main>
     <section class="content">
@@ -46,7 +27,7 @@
         </div>
 
         <div class="form-visualizar">
-            <form action="produto?opcao=editar" method="post">
+            <form action="/app/produto/editar-produto" method="post">
                 <div>
                     <label for="nome">Nome do produto</label>
                 </div>
@@ -64,8 +45,8 @@
                 </div>
                 <div class="botoes">
                     <button type="submit" class="editar">Editar</button>
-                    <a href="produto?opcao=excluir&&id=${produto.id}" class="excluir">Excluir</a>
-                    <a href="produto?opcao=cancelar" class="cancelar">Cancelar</a>
+                    <a href="/app/produto/excluir?id=${produto.id}" class="excluir">Excluir</a>
+                    <a href="/app/produto" class="cancelar">Cancelar</a>
                 </div>
 
             </form>

@@ -20,31 +20,12 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/CSS/dashboard.css">
+    <link href="<c:url value="/css/dashboard.css"/>" rel="stylesheet" type="text/css">
     <title>Página inicial</title>
 </head>
 <body>
 <section id="navbar">
-    <div>
-        <h1><span>Logo</span>Empresa</h1>
-        <div id="menu">
-            <p>MENU</p>
-            <ul>
-                <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <c:if test="${usuario_logado.permissao.id == 1}">
-                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
-                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
-                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
-                </c:if>
-            </ul>
-        </div>
-    </div >
-    <div id="footer">
-        <img src="./assets/door.png" alt="ícone de usuário branco">
-        <a href="dashboard?opcao=logout"><p>Sair</p></a>
-    </div>
-    </div>
+    <jsp:include page="../components/menu.jsp"></jsp:include>
 </section>
 <main class="dashboard">
     <section id="content">

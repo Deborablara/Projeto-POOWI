@@ -26,6 +26,7 @@ public class ClienteDAO {
 
                 c.setId(this.rs.getInt("id_cliente"));
                 c.setNome(this.rs.getString("nome_cliente"));
+                c.setIsAtivo(this.rs.getBoolean("isativo"));
                 clientes.add(c);
             }
 
@@ -38,7 +39,7 @@ public class ClienteDAO {
 
     public String Cadastrar(Cliente c){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "INSERT INTO cliente(nome_cliente) values (?)";
+            this.sql = "INSERT INTO cliente(nome_cliente, isativo) values (?, true)";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, c.getNome());
@@ -67,6 +68,7 @@ public class ClienteDAO {
             while(this.rs.next()){
                 cliente.setId(this.rs.getInt("id_cliente"));
                 cliente.setNome(this.rs.getString("nome_cliente"));
+                cliente.setIsAtivo(this.rs.getBoolean("isativo"));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -92,7 +94,7 @@ public class ClienteDAO {
 
     public String Excluir(int id){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "delete from cliente where id_cliente=?";
+            this.sql = "update cliente set isativo=false where id_cliente=?";
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setInt(1, id);
             this.preparedStatement.executeUpdate();

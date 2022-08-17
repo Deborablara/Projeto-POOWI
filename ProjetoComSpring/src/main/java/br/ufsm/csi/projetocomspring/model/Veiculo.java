@@ -4,6 +4,8 @@ public class Veiculo {
     private String placa;
     private int id;
 
+    private boolean isAtivo;
+
     public Veiculo() {
     }
     public Veiculo(int id) {
@@ -26,6 +28,15 @@ public class Veiculo {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
+
+    public Boolean getIsAtivo() {
+        return isAtivo;
+    }
+
+    public void setIsAtivo(Boolean isAtivo) {
+        this.isAtivo = isAtivo;
+    }
+
 
     public int getId() {
         return id;

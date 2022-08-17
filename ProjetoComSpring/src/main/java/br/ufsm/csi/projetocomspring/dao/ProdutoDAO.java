@@ -25,6 +25,7 @@ public class ProdutoDAO {
 
                 p.setId(this.rs.getInt("id_produto"));
                 p.setNome(this.rs.getString("nome_produto"));
+                p.setIsAtivo(this.rs.getBoolean("isativo"));
                 produtos.add(p);
             }
         }catch (SQLException e){
@@ -37,7 +38,7 @@ public class ProdutoDAO {
 
     public String Cadastrar(Produto p){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "INSERT INTO produto(nome_produto) VALUES (?)";
+            this.sql = "INSERT INTO produto(nome_produto, isativo) VALUES (?, true)";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, p.getNome());
@@ -55,14 +56,18 @@ public class ProdutoDAO {
 
     public String Editar(Produto p){
         try(Connection connection = new ConectaDB().getConexao()){
+
+            connection.setAutoCommit(false);
             this.sql = "UPDATE produto SET nome_produto=? where id_produto=?";
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, p.getNome());
             this.preparedStatement.setInt(2, p.getId());
             this.preparedStatement.executeUpdate();
 
-            this.status = "OK";
-
+            if (this.preparedStatement.getUpdateCount() > 0) {
+                connection.commit();
+                this.status = "OK";
+            }
 
         }catch (SQLException e){
             e.printStackTrace();
@@ -84,6 +89,7 @@ public class ProdutoDAO {
             while(this.rs.next()){
                 p.setId(this.rs.getInt("id_produto"));
                 p.setNome(this.rs.getString("nome_produto"));
+                p.setIsAtivo(this.rs.getBoolean("isativo"));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -94,7 +100,7 @@ public class ProdutoDAO {
 
     public String Excluir (int id){
         try(Connection connection = new ConectaDB().getConexao()){
-            this.sql = "delete from produto where id_produto = ?";
+            this.sql = "update produto set isativo=false where id_produto = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setInt(1, id);

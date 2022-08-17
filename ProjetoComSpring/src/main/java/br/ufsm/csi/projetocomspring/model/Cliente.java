@@ -4,6 +4,7 @@ public class Cliente {
 
     private int id;
     private String nome;
+    private Boolean isAtivo;
 
     public Cliente(){
 
@@ -25,6 +26,13 @@ public class Cliente {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public Boolean getIsAtivo() {
+        return isAtivo;
+    }
+
+    public void setIsAtivo(Boolean isAtivo) {
+        this.isAtivo = isAtivo;
     }
 
     public String getNome() {

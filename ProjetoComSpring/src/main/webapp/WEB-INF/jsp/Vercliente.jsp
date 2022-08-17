@@ -13,62 +13,42 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/CSS/style.css">
-    <title>Veículos</title>
+    <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css">
+    <title>Cliente</title>
 </head>
 <body>
 <section id="navbar">
-    <div>
-        <h1><span>Logo</span>Empresa</h1>
-        <div id="menu">
-            <p>MENU</p>
-            <ul>
-                <li><a href="dashboard?opcao=pedidos">Pedidos</a></li>
-                <c:if test="${usuario_logado.permissao.id == 1}">
-                    <li><a href="dashboard?opcao=clientes">Cliente</a></li>
-                    <li><a href="dashboard?opcao=veiculos">Veículos</a></li>
-                    <li><a href="dashboard?opcao=funcionarios">Funcionários</a></li>
-                    <li><a href="dashboard?opcao=produtos">Produtos</a></li>
-                </c:if>
-            </ul>
-        </div>
-    </div >
-    <div id="footer">
-        <img src="../resources/assets/door.png" alt="ícone de usuário branco">
-        <a href="dashboard?opcao=logout"><p>Sair</p></a>
-    </div>
-    </div>
+    <jsp:include page="../components/menu.jsp"></jsp:include>
 </section>
 <main>
     <section class="content">
-
         <div class="divbutton">
-            <h2>Veículo</h2>
+            <h2>Cliente</h2>
         </div>
 
         <div class="form-visualizar">
-            <form  action="veiculo?opcao=editar" method="post">
+            <form action="/app/cliente/editar" method="post">
                 <div>
-                    <label for="placa">Placa</label>
+                    <label for="nome">Nome do cliente</label>
                 </div>
                 <div>
                     <input
                             type="text"
-                            name="placa"
-                            value="${veiculo.placa}"
+                            name="nome"
+                            value="${cliente.nome}"
                     />
-
                     <input
                             type="hidden"
                             name="id"
-                            value="${veiculo.id}"
+                            value="${cliente.id}"
                     />
                 </div>
 
+
                 <div class="botoes">
                     <button type="submit" class="editar">Editar</button>
-                    <a href="veiculo?opcao=excluir&&id=${veiculo.id}" class="excluir">Excluir</a>
-                    <a href="veiculo?opcao=cancelar" class="cancelar">Cancelar</a>
+                    <a href="/app/cliente/excluir?id=${cliente.id}" class="excluir">Excluir</a>
+                    <a href="/app/cliente" class="cancelar">Cancelar</a>
                 </div>
             </form>
         </div>
@@ -79,4 +59,4 @@
 </main>
 </body>
 </html>
-</html>
+
